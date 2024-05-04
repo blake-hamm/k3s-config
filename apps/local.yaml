@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/blake-hamm/k3s-config.git
     path: apps/local
-    targetRevision: main
+    targetRevision: HEAD
     directory:
       recurse: true
   destination:
