@@ -24,11 +24,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  ignoreDifferences:
-    - group: apps
-      kind: StatefulSet
-      jsonPointers:
-        - /status/replicas
-        - /status/readyReplicas
-        - /status/currentReplicas
-        - /status/updatedReplicas
