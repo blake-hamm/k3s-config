@@ -6,4 +6,4 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
 data:
-  cidr-global: 192.168.69.24/29
+  cidr-global: 192.168.69.21/31 # 2 ips
