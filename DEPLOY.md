@@ -28,7 +28,7 @@ Wait for `deployment.apps/calico-apiserver` to finish before going to the next s
 ## Core k3s tools
 Now we have a functioning k3s cluster, but set up the rest of the cluster for our homelab with argocd. We deploy the `core` argocd applications. This will stand up the following tools:
  - kube-vip for ha control plane and kubernetes services (lb)
- - vault for secrets
+ - vault for secrets (to unseal follow docs - https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-minikube-raft)
  - vaultwarden for passwords
  - traefik for ingress
  - cert manager for certs (w/ cloudflare)
