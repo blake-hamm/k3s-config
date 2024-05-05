@@ -11,6 +11,9 @@ spec:
     chart: vault
     repoURL: https://helm.releases.hashicorp.com
     targetRevision: 0.28.0
+  helm:
+    valueFiles:
+      - values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: vault
