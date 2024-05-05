@@ -5,6 +5,8 @@ metadata:
   namespace: default
   labels:
     app: nginx
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
 spec:
   replicas: 2
   progressDeadlineSeconds: 600
