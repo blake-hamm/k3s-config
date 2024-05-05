@@ -41,7 +41,7 @@ spec:
                 fieldRef:
                   fieldPath: spec.nodeName
             - name: vip_interface
-              value: wlp1s0
+              value: enp0s4
             - name: vip_cidr
               value: "32"
             - name: dns_mode
