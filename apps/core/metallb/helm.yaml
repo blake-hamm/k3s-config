@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: charts/metallb
+    chart: metallb/metallb
     repoURL: https://github.com/metallb/metallb.git
     targetRevision: metallb-chart-0.14.5
   syncPolicy:
