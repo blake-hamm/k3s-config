@@ -1,7 +1,7 @@
 # k3s config
 *For an opinionated homelab*
 
-A monorepo with an opinionated take on k3s. It assumes you have a k3s cluster running and you want to deploy services securily and access them safely with your LAN or wireguard.
+A monorepo with an opinionated take on k3s. It assumes you have k3s VM hosts running. Then, it uses k3sup to deploy a k3s cluster.
 
 It is similar to standard k3s, but instead uses kube-vip for a load balancer and virtual ip solution. This way, k3s is accessible as an ip on your local network. This is configured in the `manifests` directory.
 

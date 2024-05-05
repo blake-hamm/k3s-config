@@ -1,6 +1,22 @@
-# To deploy
-Copy `./manifests` to `/var/lib/rancher/k3s/server/manifests/custom`
+# Full deployment
 
-Then, get your argocd secret with `sudo kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d` (username is admin).
+## Pre-reqs
+- VM accessible with ssh
 
-Next, deploy an app with `sudo kubectl apply -f apps/local.yaml`.
+## k3s
+Deploy k3s with the following flags:
+```bash
+  "--debug"
+  "--disable=traefik"
+  "--disable=servicellb"
+  "--flannel-backend=none"
+  "--disable-network-policy"
+  "--tls-san=192.168.69.20"
+```
+
+
+## Extra config
+After the cluster is deployed, you should be able to access it with kubectl on the host machine. However, you will notice none of the pods have started. To get the cluster functional, deploy the files in the manifests directory:
+```bash
+
+```
