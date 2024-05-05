@@ -23,6 +23,7 @@ sudo kubectl create -f k3s-config/manifests/calico.yaml
 sudo kubectl create namespace argocd
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
+Wait for `deployment.apps/calico-apiserver` to finish before going to the next step.
 
 ## Core k3s tools
 Now we have a functioning k3s cluster, but set up the rest of the cluster for our homelab with argocd. We deploy the `core` argocd applications. This will stand up the following tools:
@@ -42,4 +43,7 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  To deploy these core tools run:
  ```bash
  sudo kubectl apply -n argocd -f k3s-config/apps/core.yaml
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
  ```
