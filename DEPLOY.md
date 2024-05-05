@@ -14,7 +14,7 @@ Deploy k3s with the following flags:
   "--tls-san=192.168.69.20"
 ```
 
-## Required k3s add-ons
+## Required k3s tools
 After the cluster is deployed, you should be able to access it with kubectl on the host machine. However, you will notice none of the pods have started. To get the cluster functional, deploy the files in the manifests directory:
 ```bash
 sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml
@@ -24,7 +24,7 @@ sudo kubectl create namespace argocd
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-## Core k3s add-ons
+## Core k3s tools
 Now we have a functioning k3s cluster, but set up the rest of the cluster for our homelab with argocd. We deploy the `core` argocd applications. This will stand up the following tools:
  - kube-vip for ha control plane
  - metallb for kubernetes services
@@ -37,3 +37,9 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  - external dns to update pihole
  - prometheus + grafana for monitoring
  - nginx example app
+ - homepage with links
+
+ To deploy these core tools run:
+ ```bash
+ sudo kubectl apply -n argocd k3s-config/core/core.yaml
+ ```
