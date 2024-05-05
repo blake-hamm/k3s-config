@@ -41,5 +41,5 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
 
  To deploy these core tools run:
  ```bash
- sudo kubectl apply -n argocd k3s-config/core/core.yaml
+ sudo kubectl apply -n argocd -f k3s-config/core/core.yaml
  ```
