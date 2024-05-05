@@ -22,6 +22,7 @@ git clone https://github.com/blake-hamm/k3s-config.git
 sudo kubectl create -f k3s-config/manifests/calico.yaml
 sudo kubectl create namespace argocd
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+watch sudo kubectl get all --all-namespaces
 ```
 Wait for `deployment.apps/calico-apiserver` to finish before going to the next step.
 
@@ -30,7 +31,7 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  - kube-vip for ha control plane and kubernetes services (lb)
  - vault for secrets (to unseal follow docs - https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-minikube-raft)
  - vaultwarden for passwords
- - traefik for ingress
+ - traefik for ingress/proxy
  - cert manager for certs (w/ cloudflare)
  - authelia for middleware
  - pihole for dns
