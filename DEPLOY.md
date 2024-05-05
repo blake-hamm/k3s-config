@@ -43,6 +43,7 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  To deploy these core tools run:
  ```bash
  sudo kubectl apply -n argocd -f k3s-config/apps/core.yaml
+ sudo kubectl config set-context --current --namespace=argocd
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
