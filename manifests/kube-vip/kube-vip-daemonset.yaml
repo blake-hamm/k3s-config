@@ -7,8 +7,6 @@ metadata:
     app.kubernetes.io/version: v0.8.0
   name: kube-vip-ds
   namespace: kube-system
-  annotations:
-    argocd.argoproj.io/sync-wave: "-100"
 spec:
   selector:
     matchLabels:
