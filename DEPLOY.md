@@ -31,11 +31,11 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  - kube-vip for ha control plane and kubernetes services (lb)
  - vault for secrets (to unseal follow docs - https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-minikube-raft)
     - To unseal:
-    ```bash
-    sudo kubectl exec vault-0 -n vault -- vault operator init     -key-shares=1     -key-threshold=1     -format=json > cluster-keys.json
-    VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
-    sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
-    ```
+```bash
+sudo kubectl exec vault-0 -n vault -- vault operator init     -key-shares=1     -key-threshold=1     -format=json > cluster-keys.json
+VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
+sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
+```
  - vaultwarden for passwords
  - traefik for ingress/proxy
  - cert manager for certs (w/ cloudflare)
