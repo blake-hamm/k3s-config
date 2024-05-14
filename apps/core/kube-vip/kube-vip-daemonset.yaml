@@ -8,7 +8,7 @@ metadata:
   name: kube-vip-ds
   namespace: kube-system
   annotations:
-    argocd.argoproj.io/sync-wave: "-10"
+    argocd.argoproj.io/hook: PreSync
 spec:
   selector:
     matchLabels:
@@ -67,7 +67,7 @@ spec:
             - name: vip_retryperiod
               value: "1"
             - name: address
-              value: 192.168.69.19 # Also configured in k3s.nix
+              value: 192.168.69.20 # Also configured in k3s.nix
             - name: prometheus_server
               value: :2112
           image: ghcr.io/kube-vip/kube-vip:v0.8.0
