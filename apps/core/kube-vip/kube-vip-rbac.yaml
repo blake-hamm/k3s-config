@@ -4,14 +4,14 @@ metadata:
   name: kube-vip
   namespace: kube-system
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-10"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
     rbac.authorization.kubernetes.io/autoupdate: "true"
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-10"
   name: system:kube-vip-role
 rules:
   - apiGroups: [""]
@@ -35,7 +35,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: system:kube-vip-binding
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-10"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
