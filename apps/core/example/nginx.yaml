@@ -24,16 +24,42 @@ spec:
       containers:
         - name: nginx
           image: nginx:latest
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: nginx
-# spec:
-#   ports:
-#     - name: http
-#       port: 80
-#       protocol: TCP
-#   selector:
-#     app: nginx
-#   type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  selector:
+    app: nginx
+  ports:
+    - name: http
+      targetPort: 80
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nginx
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    # external-dns.alpha.kubernetes.io/target: local.bhamm-lab.com
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`nginx.bhamm-lab.com`)
+      kind: Rule
+      services:
+        - name: nginx
+          port: 80
+      middlewares:
+        - name: default-headers
+  # tls:
+  #   secretName: local-bhamm-lab-tls
