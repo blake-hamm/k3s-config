@@ -20,8 +20,7 @@ After the cluster is deployed, you should be able to access it with kubectl on t
 sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml
 git clone https://github.com/blake-hamm/k3s-config.git
 cd k3s-config && git checkout feature/init # Only needed when on branch
-sudo kubectl create -f ~/k3s-config/manifests/calico.yaml
-sudo kubectl create -f ~/k3s-config/manifests/kube-vip
+sudo kubectl create -f ~/k3s-config/manifests
 sudo kubectl create namespace argocd
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch sudo kubectl get all --all-namespaces
