@@ -61,5 +61,7 @@ spec:
           port: 80
       middlewares:
         - name: default-headers
+  tls:
+    certResolver: default
   # tls:
   #   secretName: local-bhamm-lab-tls
