@@ -4,6 +4,6 @@ metadata:
   name: kubevip
   namespace: kube-system
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-100"
 data:
   cidr-global: 192.168.69.22/31 # 2 ips
