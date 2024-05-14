@@ -44,7 +44,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: nginx
-  namespace: default
+  namespace: traefik
   annotations:
     kubernetes.io/ingress.class: traefik-external
     # external-dns.alpha.kubernetes.io/target: local.bhamm-lab.com

@@ -54,3 +54,8 @@ sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
  ```
+
+Troubleshooting:
+```bash
+
+```
