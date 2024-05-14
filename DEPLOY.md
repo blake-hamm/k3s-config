@@ -19,7 +19,9 @@ After the cluster is deployed, you should be able to access it with kubectl on t
 ```bash
 sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml
 git clone https://github.com/blake-hamm/k3s-config.git
-sudo kubectl create -f k3s-config/manifests/calico.yaml
+cd k3s-config && git checkout feature/init # Only needed when on branch
+sudo kubectl create -f ~/k3s-config/manifests/calico.yaml
+sudo kubectl create -f ~/k3s-config/manifests/kube-vip
 sudo kubectl create namespace argocd
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch sudo kubectl get all --all-namespaces
@@ -30,12 +32,6 @@ Wait for `deployment.apps/calico-apiserver` to finish before going to the next s
 Now we have a functioning k3s cluster, but set up the rest of the cluster for our homelab with argocd. We deploy the `core` argocd applications. This will stand up the following tools:
  - kube-vip for ha control plane and kubernetes services (lb)
  - vault for secrets (to unseal follow docs - https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-minikube-raft)
-    - To unseal:
-```bash
-sudo kubectl exec vault-0 -n vault -- vault operator init     -key-shares=1     -key-threshold=1     -format=json > cluster-keys.json
-VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
-sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
-```
  - vaultwarden for passwords
  - traefik for ingress/proxy
  - cert manager for certs (w/ cloudflare)
@@ -49,11 +45,18 @@ sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
  To deploy these core tools run:
  ```bash
  sudo kubectl config set-context --current --namespace=argocd
- sudo kubectl apply -f k3s-config/apps/core.yaml
+ sudo kubectl apply -f ~/k3s-config/apps/core.yaml
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
  ```
+
+To unseal: vault
+```bash
+sudo kubectl exec vault-0 -n vault -- vault operator init     -key-shares=1     -key-threshold=1     -format=json > cluster-keys.json
+VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
+sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
+```
 
 Troubleshooting:
 ```bash
