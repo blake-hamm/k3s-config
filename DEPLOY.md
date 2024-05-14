@@ -57,5 +57,5 @@ sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 
 Troubleshooting:
 ```bash
-
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app list
 ```
