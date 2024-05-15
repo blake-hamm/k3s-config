@@ -70,7 +70,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`example.com`) && PathPrefix(`/nginx`) #Host(`nginx.bhamm-lab.com`)
+    - match: Host(`192.168.69.21`) && PathPrefix(`/nginx`) #Host(`nginx.bhamm-lab.com`)
       kind: Rule
       services:
         - name: nginx
