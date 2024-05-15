@@ -4,7 +4,7 @@ metadata:
   name: metallb
   namespace: argocd
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-100"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
