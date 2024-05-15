@@ -58,6 +58,16 @@ VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
 sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 ```
 
+## Testing
+For testing new applications with argocd, it's best to use a seperate app from "core" because we generally don't want to remove it. To do this, you can use the "test" app. To deploy/sync:
+ ```bash
+ sudo kubectl config set-context --current --namespace=argocd
+ sudo kubectl apply -f ~/k3s-config/apps/test.yaml
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync test
+ sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app delete test
+ ```
+
 Troubleshooting:
 ```bash
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app list
