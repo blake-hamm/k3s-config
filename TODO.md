@@ -7,6 +7,7 @@ I want to have my vault instance accessible via https://vault.bhamm-lab.com on m
 ## Next steps:
 - [ ] LetsEncrypt acme challenge with cloudflare vault secret (manually setup)
 - [ ] Deploy pihole and setup with opnsense
+- [ ] Update pihole records with external dns - https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md
 - [ ] Traefik config for nginx, then vault
 - [ ] Finalize vault url with middleware to check host ip (only my framework)
 
@@ -28,3 +29,7 @@ I want to have my vault instance accessible via https://vault.bhamm-lab.com on m
 - [ ] Argo events/workflows w/ kubernetes-native backups
 - [ ] Gitea
 - [ ] Wireguard
+
+### Some more fun services
+- [ ] Homelab dashboard
+- [ ] rr stack
