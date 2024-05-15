@@ -23,7 +23,6 @@ cd k3s-config && git checkout feature/init # Only needed when on branch
 sudo kubectl create -f ~/k3s-config/manifests
 sudo kubectl create namespace argocd
 sudo helm repo add argo https://argoproj.github.io/argo-helm
-sudo helm repo update
 sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm install argocd argo/argo-cd --namespace argocd --version 6.9.2
 watch sudo kubectl get all --all-namespaces
 ```
