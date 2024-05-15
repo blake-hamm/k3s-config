@@ -21,9 +21,10 @@ sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3
 git clone https://github.com/blake-hamm/k3s-config.git
 cd k3s-config && git checkout feature/init # Only needed when on branch
 sudo kubectl create -f ~/k3s-config/manifests
-# TODO: Deploy argo with helm instead
 sudo kubectl create namespace argocd
-sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+sudo helm repo add argo https://argoproj.github.io/argo-helm
+sudo helm repo update
+sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm install argocd argo/argo-cd --namespace argocd --version 6.9.2
 watch sudo kubectl get all --all-namespaces
 ```
 Wait for `deployment.apps/calico-apiserver` to finish before going to the next step.

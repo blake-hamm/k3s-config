@@ -24,6 +24,10 @@ spec:
       containers:
         - name: nginx
           image: nginx:latest
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
 ---
 apiVersion: v1
 kind: Service
@@ -40,6 +44,10 @@ spec:
       targetPort: 80
       port: 80
   type: LoadBalancer
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
 # ---
 # apiVersion: v1
 # kind: Service
