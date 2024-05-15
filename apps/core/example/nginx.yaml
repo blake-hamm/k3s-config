@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-lb
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "100"
@@ -40,29 +40,44 @@ spec:
       targetPort: 80
       port: 80
   type: LoadBalancer
-# ---
-# apiVersion: traefik.io/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: nginx
-#   namespace: default
-#   annotations:
-#     kubernetes.io/ingress.class: traefik-external
-#     # external-dns.alpha.kubernetes.io/target: local.bhamm-lab.com
-#     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-#     argocd.argoproj.io/sync-wave: "100"
-# spec:
-#   entryPoints:
-#     - websecure
-#   routes:
-#     - match: Host(`example.com`) && PathPrefix(`/nginx`) #Host(`nginx.bhamm-lab.com`)
-#       kind: Rule
-#       services:
-#         - name: nginx
-#           port: 80
-#       middlewares:
-#         - name: default-headers
-#   tls:
-#     certResolver: default
-# tls:
-#   secretName: local-bhamm-lab-tls
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  selector:
+    app: nginx
+  ports:
+    - name: http
+      targetPort: 80
+      port: 80
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nginx
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    # external-dns.alpha.kubernetes.io/target: local.bhamm-lab.com
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`example.com`) && PathPrefix(`/nginx`) #Host(`nginx.bhamm-lab.com`)
+      kind: Rule
+      services:
+        - name: nginx
+          port: 80
+      middlewares:
+        - name: default-headers
+  tls:
+    certResolver: default
+  # tls:
+  #   secretName: local-bhamm-lab-tls
