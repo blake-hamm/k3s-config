@@ -64,7 +64,7 @@ To sync vault secrets with kubernetes - https://developer.hashicorp.com/vault/tu
 #### Cert Manager & DNS
 To create cf token:
 ```bash
-sudo kubectl create secret generic cloudflare-token-secret --from-literal=cloudflare-token=<token>
+sudo kubectl -n cert-manager create secret generic cloudflare-token-secret --from-literal=cloudflare-token=<token>
 ```
 
 ## Testing
