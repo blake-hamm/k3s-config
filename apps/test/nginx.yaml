@@ -54,13 +54,13 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`192.168.69.21`) && PathPrefix(`/nginx`) #Host(`nginx.bhamm-lab.com`)
+    - match: Host(`nginx.bhamm-lab.com`)
       kind: Rule
       services:
         - name: nginx
           port: 80
-          # middlewares:
-          #   - name: default-headers
+          middlewares:
+            - name: default-headers
   tls:
     certResolver: default
 # tls:
