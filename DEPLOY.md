@@ -51,11 +51,20 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
  ```
 
-To unseal: vault
+#### Vault
+To unseal:
 ```bash
 sudo kubectl exec vault-0 -n vault -- vault operator init     -key-shares=1     -key-threshold=1     -format=json > cluster-keys.json
 VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
 sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
+```
+
+To sync vault secrets with kubernetes - https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator
+
+#### Cert Manager & DNS
+To create cf token:
+```bash
+sudo kubectl create secret generic cloudflare-token-secret --from-literal=cloudflare-token=<token>
 ```
 
 ## Testing
