@@ -21,11 +21,15 @@ sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3
 git clone https://github.com/blake-hamm/k3s-config.git
 cd k3s-config && git checkout feature/init # Only needed when on branch
 sudo kubectl create -f ~/k3s-config/manifests
-sudo helm repo add argo https://argoproj.github.io/argo-helm
-sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm install argocd argo/argo-cd --version 6.9.2
-watch sudo kubectl get all --all-namespaces
 ```
-Wait for `deployment.apps/calico-apiserver` to finish before going to the next step.
+
+
+Once the cluster us up and the CNI is working properly (`deployment.apps/calico-apiserver`), copy the `/etc/rancher/k3s/k3s.yaml` config to your local `.kube/config` and replace the ip address with your kube-vip address. Then, you can continue deploy services on your local:
+```bash
+helm repo add argo https://argoproj.github.io/argo-helm
+helm install argocd argo/argo-cd --version 6.9.2
+watch kubectl get all --all-namespaces
+```
 
 ## Core k3s tools
 Now we have a functioning k3s cluster, but set up the rest of the cluster for our homelab with argocd. We deploy the `core` argocd applications. This will stand up the following tools:
@@ -43,10 +47,10 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
 
  To deploy these core tools run:
  ```bash
-sudo kubectl apply -f ~/k3s-config/apps/core.yaml
-sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
-sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
-sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
+kubectl apply -f apps/core.yaml
+argocd login --core
+argocd app sync core
+argocd app sync -l argocd.argoproj.io/instance=core
  ```
 
 #### Vault
