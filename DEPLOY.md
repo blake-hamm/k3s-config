@@ -43,9 +43,6 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
 
  To deploy these core tools run:
  ```bash
-git clone https://github.com/blake-hamm/k3s-config.git
-cd k3s-config && git checkout feature/init # Only needed when on branch
-sudo kubectl config set-context --current --namespace=argocd
 sudo kubectl apply -f ~/k3s-config/apps/core.yaml
 sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
 sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
