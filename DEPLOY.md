@@ -21,9 +21,8 @@ sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3
 git clone https://github.com/blake-hamm/k3s-config.git
 cd k3s-config && git checkout feature/init # Only needed when on branch
 sudo kubectl create -f ~/k3s-config/manifests
-sudo kubectl create namespace argocd
 sudo helm repo add argo https://argoproj.github.io/argo-helm
-sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm install argocd argo/argo-cd --namespace argocd --version 6.9.2
+sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm install argocd argo/argo-cd --version 6.9.2
 watch sudo kubectl get all --all-namespaces
 ```
 Wait for `deployment.apps/calico-apiserver` to finish before going to the next step.
@@ -44,11 +43,13 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
 
  To deploy these core tools run:
  ```bash
- sudo kubectl config set-context --current --namespace=argocd
- sudo kubectl apply -f ~/k3s-config/apps/core.yaml
- sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
- sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
- sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
+git clone https://github.com/blake-hamm/k3s-config.git
+cd k3s-config && git checkout feature/init # Only needed when on branch
+sudo kubectl config set-context --current --namespace=argocd
+sudo kubectl apply -f ~/k3s-config/apps/core.yaml
+sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd login --core
+sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync core
+sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app sync -l argocd.argoproj.io/instance=core
  ```
 
 #### Vault
