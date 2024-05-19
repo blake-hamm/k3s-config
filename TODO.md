@@ -1,15 +1,17 @@
 # Goals
-I want to have my vault instance accessible via https://vault.bhamm-lab.com on my LAN; then, I can leverage it in other projects. In order to accomplish this, I need:
+I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN; then, I can troubleshoot it more easily. In order to accomplish this, I need:
+- [ ] Multiple nodes to load balance
 - [ ] LetsEncrypt acme challenge with my domain on cloudflare
 - [ ] Local DNS with pihole
 - [ ] Traefik ingress
 
 ## Next steps:
+- [ ] Deploy multi node cluster
 - [ ] LetsEncrypt acme challenge with cloudflare vault secret (manually setup)
 - [ ] Deploy pihole and setup with opnsense
 - [ ] Update pihole records with external dns - https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md
-- [ ] Traefik config for nginx, then vault
-- [ ] Finalize vault url with middleware to check host ip (only my framework)
+- [ ] Traefik config for nginx
+- [ ] Finalize middleware to check host ip (only my framework)
 
 ### Once vault is functioning as planned, some bonus feature are:
 - [ ] Setup authelia middleware
