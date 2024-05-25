@@ -48,6 +48,3 @@ service:
   labels: {}
   loadBalancerSourceRanges: []
   externalIPs: []
-  spec:
-    loadBalancerIP: "192.168.69.37" # First address in metallb cidr
-    clusterIP: "192.168.69.20" # From kube-vip
