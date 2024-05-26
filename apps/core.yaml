@@ -18,7 +18,6 @@ spec:
     namespace: default
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
     automated:
       prune: true
