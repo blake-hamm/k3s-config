@@ -90,4 +90,9 @@ For testing new applications with argocd, it's best to use a seperate app from "
 Troubleshooting:
 ```bash
  sudo KUBECONFIG=/etc/rancher/k3s/k3s.yaml argocd app list
+
+# To delete argo app:
+kubectl patch app APPNAME  -p '{"metadata": {"finalizers": null}}' --type merge
+kubectl delete app APPNAME
+
 ```
