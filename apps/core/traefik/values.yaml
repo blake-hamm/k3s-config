@@ -11,13 +11,6 @@ deployment:
   podAnnotations: {}
   additionalContainers: []
   initContainers: []
-resources:
-  requests:
-    cpu: "100m"
-    memory: "50M"
-  limits:
-    cpu: "300m"
-    memory: "150M"
 ports:
   web:
     redirectTo:
