@@ -16,7 +16,7 @@ spec:
       middlewares:
         - name: lan-ips
       services:
-        - name: kubernetes
+        - name: kubernetes-dashboard-kong-proxy
           port: 443
   tls:
     secretName: bhamm-lab-tls
