@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: core
+  name: test
   namespace: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/blake-hamm/k3s-config.git
-    path: apps/core
+    path: apps/test
     targetRevision: feature/init
     directory:
       recurse: true

@@ -1,3 +1,45 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kube-vip
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  name: system:kube-vip-role
+rules:
+  - apiGroups: [""]
+    resources: ["services/status"]
+    verbs: ["update"]
+  - apiGroups: [""]
+    resources: ["services", "endpoints"]
+    verbs: ["list", "get", "watch", "update"]
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["list", "get", "watch", "update", "patch"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    verbs: ["list", "get", "watch", "update", "create"]
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["list", "get", "watch", "update"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: system:kube-vip-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:kube-vip-role
+subjects:
+  - kind: ServiceAccount
+    name: kube-vip
+    namespace: kube-system
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -7,8 +49,6 @@ metadata:
     app.kubernetes.io/version: v0.8.0
   name: kube-vip-ds
   namespace: kube-system
-  annotations:
-    argocd.argoproj.io/hook: PreSync
 spec:
   selector:
     matchLabels:
@@ -67,7 +107,7 @@ spec:
             - name: vip_retryperiod
               value: "1"
             - name: address
-              value: 192.168.69.19 # Also configured in k3s.nix
+              value: 192.168.69.20 # Also configured in k3s.nix
             - name: prometheus_server
               value: :2112
           image: ghcr.io/kube-vip/kube-vip:v0.8.0

@@ -9,7 +9,8 @@ spec:
   calicoNetwork:
     # Note: The ipPools section cannot be modified post-install.
     ipPools:
-      - blockSize: 26
+      - name: default-ipv4-ippool
+        blockSize: 26
         cidr: 10.42.0.0/16 # Also configured in k3s.nix
         encapsulation: VXLANCrossSubnet
         natOutgoing: Enabled

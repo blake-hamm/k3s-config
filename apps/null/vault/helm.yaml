@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: vault
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
@@ -20,7 +22,7 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
     automated:
       prune: true
       selfHeal: true
