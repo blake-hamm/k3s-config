@@ -8,10 +8,6 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
-  labels:
-    app: traefik
   destination:
     namespace: default
     server: https://kubernetes.default.svc

@@ -29,7 +29,7 @@ watch sudo kubectl get all --all-namespaces
 Once the cluster us up and the CNI is working properly (`deployment.apps/calico-apiserver`), copy the `/etc/rancher/k3s/k3s.yaml` config to your local `.kube/config` and replace the ip address with your kube-vip address. Then, you can continue deploy services on your local:
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm
-helm install argocd argo/argo-cd --version 6.9.2
+helm install argocd argo/argo-cd --version 6.9.2 --values argo-values.yaml
 watch kubectl get all --all-namespaces
 ```
 
