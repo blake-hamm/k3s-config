@@ -48,7 +48,6 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.class: traefik-external
-    # external-dns.alpha.kubernetes.io/target: local.bhamm-lab.com
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "100"
 spec:
@@ -60,7 +59,5 @@ spec:
       services:
         - name: nginx
           port: 80
-          # middlewares:
-          #   - name: default-headers
   tls:
     secretName: bhamm-lab-tls-staging
