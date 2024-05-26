@@ -47,7 +47,13 @@ Now we have a functioning k3s cluster, but set up the rest of the cluster for ou
  - nginx example app
  - homepage with links
 
- To deploy these core tools run:
+First, add you cloudflare api key as a kubernetes secret:
+```bash
+kubectl create secret generic cloudflare-token-secret \
+  --from-literal=cloudflare-token=<my_token>
+```
+
+ Then, deploy these core tools with:
  ```bash
 kubectl apply -f apps/core.yaml
 argocd login --core
