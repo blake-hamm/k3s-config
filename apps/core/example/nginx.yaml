@@ -60,4 +60,4 @@ spec:
         - name: nginx
           port: 80
   tls:
-    secretName: bhamm-lab-tls-staging
+    secretName: bhamm-lab-tls
