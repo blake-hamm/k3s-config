@@ -31,7 +31,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  secretName: bhamm-lab-tls
+  secretName: bhamm-lab-tls-staging
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer

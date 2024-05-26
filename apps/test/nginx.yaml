@@ -61,5 +61,5 @@ spec:
           port: 80
       middlewares:
         - name: default-headers
-tls:
-  secretName: bhamm-lab-tls
+  tls:
+    secretName: bhamm-lab-tls-staging
