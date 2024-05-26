@@ -17,7 +17,7 @@ Deploy k3s with the following flags:
 ## Required k3s tools
 After the cluster is deployed, you should be able to access it with kubectl on the host machine. However, you will notice none of the pods have started. To get the cluster functional, deploy the files in the manifests directory:
 ```bash
-sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml
+sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0/manifests/tigera-operator.yaml
 sudo kubectl create -f https://raw.githubusercontent.com/metallb/metallb/v0.14.5/config/manifests/metallb-native.yaml
 git clone https://github.com/blake-hamm/k3s-config.git
 cd k3s-config && git checkout feature/init # Only needed when on branch
