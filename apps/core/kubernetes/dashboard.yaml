@@ -16,7 +16,7 @@ spec:
       middlewares:
         - name: lan-ips
       services:
-        - name: kubernetes-dashboard-web
-          port: 80
+        - name: kubernetes-dashboard
+          port: 443
   tls:
     secretName: bhamm-lab-tls
