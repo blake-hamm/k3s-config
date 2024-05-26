@@ -8,19 +8,21 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Deploy multi node cluster
 - [x] LetsEncrypt acme challenge with cloudflare vault secret (manually setup)
 - [x] Traefik config for nginx
-- [ ] Finalize middleware to check host ip (only my framework)
+- [x] Finalize middleware to check host ip (only lan)
 
 ### Once vault is functioning as planned, some bonus feature are:
 - [ ] Setup authelia middleware
 - [ ] Expose UI's behind authelia:
   - [ ] Kubernetes
-  - [ ] Traefik
+  - [x] Traefik
   - [ ] Vault
   - [ ] PiHole
-  - [ ] Argo
+  - [x] Argo
+- [ ] Setup local internet/bare metal ip mapping
+
 
 ## After some UI's are accessible
-- [ ] Multi-node cluster
+- [x] Multi-node cluster
 - [ ] nfs persistent volume
 - [ ] Prometheus, grafana, loki
 - [ ] DNS records for bare metal and network equipment
