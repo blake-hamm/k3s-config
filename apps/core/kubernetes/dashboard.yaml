@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: kubernetes-dashboard
+  name: kubernetes
   namespace: default
   annotations:
     kubernetes.io/ingress.class: traefik-external
@@ -16,7 +16,7 @@ spec:
       middlewares:
         - name: lan-ips
       services:
-        - name: kubernetes-dashboard
+        - name: kubernetes
           port: 443
   tls:
     secretName: bhamm-lab-tls
