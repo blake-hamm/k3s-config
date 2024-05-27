@@ -13,7 +13,7 @@ spec:
   source:
     chart: vault-operator
     repoURL: ghcr.io/bank-vaults/helm-charts
-    targetRevision: v1.22.1
+    targetRevision: 1.22.1
     helm:
       valuesObject:
         replicaCount: 2
