@@ -15,6 +15,7 @@ spec:
       kind: Rule
       middlewares:
         - name: lan-ips
+        - name: default-headers
       services:
         - name: api@internal
           kind: TraefikService

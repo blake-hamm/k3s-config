@@ -16,6 +16,7 @@ spec:
       priority: 10
       middlewares:
         - name: lan-ips
+        - name: default-headers
       services:
         - name: argocd-server
           port: 80

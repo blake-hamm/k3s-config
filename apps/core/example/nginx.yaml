@@ -58,6 +58,7 @@ spec:
       kind: Rule
       middlewares:
         - name: lan-ips
+        - name: default-headers
       services:
         - name: nginx
           port: 80

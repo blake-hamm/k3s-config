@@ -77,6 +77,12 @@ To create cf token:
 sudo kubectl -n cert-manager create secret generic cloudflare-token-secret --from-literal=cloudflare-token=<token>
 ```
 
+#### Kubernetes dashboard
+To access the kubernetes dashboard:
+```bash
+kubectl create token admin-user
+```
+
 ## Testing
 For testing new applications with argocd, it's best to use a seperate app from "core" because we generally don't want to remove it. To do this, you can use the "test" app. To deploy/sync:
  ```bash

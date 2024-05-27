@@ -13,7 +13,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 ### Once vault is functioning as planned, some bonus feature are:
 - [ ] Setup authelia middleware
 - [ ] Expose UI's behind authelia:
-  - [ ] Kubernetes
+  - [x] Kubernetes
   - [x] Traefik
   - [ ] Vault
   - [ ] PiHole
