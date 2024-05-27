@@ -14,9 +14,6 @@ spec:
     chart: vault-operator
     repoURL: ghcr.io/bank-vaults/helm-charts
     targetRevision: 1.22.1
-    helm:
-      valuesObject:
-        replicaCount: 2
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
