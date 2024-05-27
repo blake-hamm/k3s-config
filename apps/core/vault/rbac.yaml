@@ -11,7 +11,7 @@ spec:
   source:
     path: deploy/rbac
     repoURL: https://github.com/bank-vaults/vault-operator.git
-    targetRevision: HEAD
+    targetRevision: v1.22.1
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
