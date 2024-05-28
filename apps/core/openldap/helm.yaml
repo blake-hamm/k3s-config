@@ -14,6 +14,16 @@ spec:
     chart: openldap-stack-ha
     repoURL: https://jp-gouin.github.io/helm-openldap/
     targetRevision: 4.2.4
+    helm:
+      valuesObject:
+        ltb-passwd:
+          enabled: true
+          ingress:
+            enabled: false
+        phpldapadmin:
+          enabled: true
+          ingress:
+            enabled: false
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
