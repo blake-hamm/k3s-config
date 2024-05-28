@@ -13,6 +13,9 @@ spec:
   routes:
     - kind: Rule
       match: Host(`vault.bhamm-lab.com`)
+      middlewares:
+        - name: lan-ips
+        - name: default-headers
       services:
         - name: vault
           port: 8200
