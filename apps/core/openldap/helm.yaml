@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vault-secrets-webhook
+  name: openldap
   namespace: default
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   destination:
     namespace: default
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: vault-secrets-webhook
-    repoURL: ghcr.io/bank-vaults/helm-charts
-    targetRevision: 1.21.1
+    chart: helm-openldap/openldap-stack-ha
+    repoURL: https://jp-gouin.github.io/helm-openldap/
+    targetRevision: v4.2.4
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

@@ -69,6 +69,14 @@ VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
 sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 ```
 
+To access via cli:
+```
+export VAULT_ADDR=https://vault.bhamm-lab.com
+vault status # Check status
+export VAULT_TOKEN=$(kubectl get secrets vault-unseal-keys -o jsonpath={.data.vault-root} | base64 --decode) # Get token
+
+```
+
 To sync vault secrets with kubernetes - https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator
 
 #### Cert Manager & DNS

@@ -9,10 +9,9 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] LetsEncrypt acme challenge with cloudflare vault secret (manually setup)
 - [x] Traefik config for nginx
 - [x] Finalize middleware to check host ip (only lan)
-- [ ] Setup vault
-  - [ ] Deploy helm chart
-  - [ ] Setup dashboard
-- [ ] Setup PV on nfs
+- [x] Setup vault
+  - [x] Deploy helm chart
+  - [x] Setup dashboard
 
 ### Once vault is functioning as planned, some bonus feature are:
 - [ ] Setup authelia middleware
@@ -28,6 +27,8 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [ ] PiHole
   - [x] Argo
 - [ ] Setup local internet/bare metal ip mapping
+- [ ] Setup PV on nfs
+- [ ] Setup backups with https://velero.io/
 
 
 ## After some UI's are accessible
