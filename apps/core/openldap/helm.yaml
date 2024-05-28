@@ -13,7 +13,7 @@ spec:
   source:
     chart: helm-openldap/openldap-stack-ha
     repoURL: https://jp-gouin.github.io/helm-openldap/
-    targetRevision: v4.2.4
+    targetRevision: 4.2.4
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
