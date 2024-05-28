@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: helm-openldap/openldap-stack-ha
+    chart: openldap-stack-ha
     repoURL: https://jp-gouin.github.io/helm-openldap/
     targetRevision: 4.2.4
   syncPolicy:
