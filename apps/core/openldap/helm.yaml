@@ -18,8 +18,8 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
-          adminPassword: vault:secret/ldap#ADMIN_PASSWORD
-          configPassword: vault:secret/ldap#ADMIN_PASSWORD
+          adminPassword: supersecretpassword
+          configPassword: supersecretpassword
         env:
           LDAP_ADMIN_PASSWORD: vault:secret/ldap#ADMIN_PASSWORD
           LDAP_CONFIG_ADMIN_PASSWORD: vault:secret/ldap#ADMIN_PASSWORD
