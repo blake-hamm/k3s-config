@@ -16,6 +16,11 @@ spec:
     targetRevision: 4.2.4
     helm:
       valuesObject:
+        global:
+          ldapDomain: "bhamm-lab.com"
+        env:
+          LDAP_ADMIN_PASSWORD: vault:secret/ldap#ADMIN_PASSWORD
+          LDAP_CONFIG_ADMIN_PASSWORD: vault:secret/ldap#ADMIN_PASSWORD
         ltb-passwd:
           enabled: true
           ingress:
