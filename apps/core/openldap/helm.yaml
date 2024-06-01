@@ -18,8 +18,11 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
-          adminPassword: changeme
-          configPassword: changeme
+          adminPassword: vault:secret/ldap#ADMIN_PASSWORD
+          configPassword: vault:secret/ldap#ADMIN_PASSWORD
+        env:
+          LDAP_ADMIN_PASSWORD: vault:secret/ldap#ADMIN_PASSWORD
+          LDAP_CONFIG_ADMIN_PASSWORD: vault:secret/ldap#ADMIN_PASSWORD
         ltb-passwd:
           enabled: true
           ingress:
