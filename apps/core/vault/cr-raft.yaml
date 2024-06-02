@@ -8,21 +8,16 @@ metadata:
 spec:
   size: 3
   image: hashicorp/vault:1.14.8
-  # Common annotations for all created resources
   annotations:
     common/annotation: "true"
-  # Vault Pods , Services and TLS Secret annotations
   vaultAnnotations:
     type/instance: "vault"
-  # Vault Configurer Pods and Services annotations
   vaultConfigurerAnnotations:
     type/instance: "vaultconfigurer"
-  # Vault Pods , Services and TLS Secret labels
   vaultLabels:
-    example.com/log-format: "json"
-  # Vault Configurer Pods and Services labels
+    bhamm-lab.com/log-format: "json"
   vaultConfigurerLabels:
-    example.com/log-format: "string"
+    bhamm-lab.com/log-format: "string"
   # Support for affinity Rules
   # affinity:
   #   nodeAffinity:
@@ -45,37 +40,8 @@ spec:
   #   key: node-role.kubernetes.io/your_role
   #   operator: Equal
   #   value: "true"
-
-  # Specify the ServiceAccount where the Vault Pod and the Bank-Vaults configurer/unsealer is running
   serviceAccount: vault
-  # Specify the Service's type where the Vault Service is exposed
-  # Please note that some Ingress controllers like https://github.com/kubernetes/ingress-gce
-  # forces you to expose your Service on a NodePort
   serviceType: ClusterIP
-  # Request an Ingress controller with the default configuration
-  ingress:
-    # Specify Ingress object annotations here, if TLS is enabled (which is by default)
-    # the operator will add NGINX, Traefik and HAProxy Ingress compatible annotations
-    # to support TLS backends
-    annotations: {}
-    # Override the default Ingress specification here
-    # This follows the same format as the standard Kubernetes Ingress
-    # See: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/#ingressspec-v1beta1-extensions
-    spec: {}
-  # In some cases, you have to set permissions for the raft directory.
-  # For example in the case of using a local kind cluster, uncomment the lines below.
-  # vaultInitContainers:
-  #   - name: raft-permission
-  #     image: busybox
-  #     command:
-  #       - /bin/sh
-  #       - -c
-  #       - |
-  #         chown -R 100:1000 /vault/file
-  #     volumeMounts:
-  #       - name: vault-raft
-  #         mountPath: /vault/file
-
   # Use local disk to store Vault raft data, see config section.
   volumeClaimTemplates:
     - metadata:
@@ -92,32 +58,15 @@ spec:
   volumeMounts:
     - name: vault-raft
       mountPath: /vault/file
-  # Add Velero fsfreeze sidecar container and supporting hook annotations to Vault Pods:
-  # https://velero.io/docs/v1.2.0/hooks/
   veleroEnabled: true
-  # Support for distributing the generated CA certificate Secret to other namespaces.
-  # Define a list of namespaces or use ["*"] for all namespaces.
-  caNamespaces:
-    - "vswh"
-  # Describe where you would like to store the Vault unseal keys and root token.
   unsealConfig:
     options:
-      # The preFlightChecks flag enables unseal and root token storage tests
-      # This is true by default
       preFlightChecks: true
-      # The storeRootToken flag enables storing of root token in chosen storage
-      # This is true by default
       storeRootToken: true
-      # The secretShares represents the total number of unseal key shares
-      # This is 5 by default
       secretShares: 5
-      # The secretThreshold represents the minimum number of shares required to reconstruct the unseal key
-      # This is 3 by default
       secretThreshold: 3
     kubernetes:
       secretNamespace: default
-  # A YAML representation of a final vault config file.
-  # See https://www.vaultproject.io/docs/configuration/ for more information.
   config:
     storage:
       raft:
@@ -133,8 +82,6 @@ spec:
   statsdDisabled: true
   serviceRegistrationEnabled: true
   resources:
-    # A YAML representation of resource ResourceRequirements for vault container
-    # Detail can reference: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container
     vault:
       limits:
         memory: "512Mi"
@@ -153,8 +100,8 @@ spec:
         roles:
           # Allow every pod in the default namespace to use the secret kv store
           - name: default
-            bound_service_account_names: ["default", "vault-secrets-webhook"]
-            bound_service_account_namespaces: ["default", "vswh"]
+            bound_service_account_names: ["default", "vault", "vault-secrets-webhook", "argocd-repo-server"]
+            bound_service_account_namespaces: ["default"]
             policies: allow_secrets
             ttl: 1h
     secrets:
