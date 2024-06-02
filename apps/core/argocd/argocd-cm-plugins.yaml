@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pluginName
+  name: argocd-vault-plugin
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-100"
