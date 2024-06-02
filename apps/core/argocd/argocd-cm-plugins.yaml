@@ -1,14 +1,22 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ConfigManagementPlugin
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: argocd-vault-plugin
+  name: pluginName
+  namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-100"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+data:
+  pluginName.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: ConfigManagementPlugin
+    metadata:
+      name: argocd-vault-plugin
+    spec:
+      generate:
+        command: ["argocd-vault-plugin"]
+        args: ["generate", "./"]
 spec:
-  generate:
-    command: ["argocd-vault-plugin"]
-    args: ["generate", "./"]
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
