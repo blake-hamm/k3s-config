@@ -29,8 +29,8 @@ spec:
           automountServiceAccountToken: true
           volumes:
             - configMap:
-                name: argocd-cmp-cm
-              name: argocd-cmp-cm
+                name: cmp-plugin
+              name: cmp-plugin
             - name: custom-tools
               emptyDir: {}
           initContainers:
@@ -63,7 +63,7 @@ spec:
                 # Register plugins into sidecar
                 - mountPath: /home/argocd/cmp-server/config/plugin.yaml
                   subPath: avp.yaml
-                  name: argocd-cmp-cm
+                  name: cmp-plugin
                 # Important: Mount tools into $PATH
                 - name: custom-tools
                   subPath: argocd-vault-plugin
@@ -71,23 +71,23 @@ spec:
         configs:
           params:
             server.insecure: true
-          cmp:
-            create: true
-            plugins:
-              argocd-vault-plugin:
-                allowConcurrency: true
-                discover:
-                  find:
-                    command:
-                      - sh
-                      - "-c"
-                      - "find . -name '*.yaml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."
-                generate:
-                  command:
-                    - argocd-vault-plugin
-                    - generate
-                    - "."
-                lockRepo: false
+            # cmp:
+            #   create: true
+            #   plugins:
+            #     argocd-vault-plugin:
+            #       allowConcurrency: true
+            #       discover:
+            #         find:
+            #           command:
+            #             - sh
+            #             - "-c"
+            #             - "find . -name '*.yaml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."
+            #       generate:
+            #         command:
+            #           - argocd-vault-plugin
+            #           - generate
+            #           - "."
+            #       lockRepo: false
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
