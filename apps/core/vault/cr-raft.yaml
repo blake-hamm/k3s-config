@@ -59,6 +59,9 @@ spec:
     - name: vault-raft
       mountPath: /vault/file
   veleroEnabled: true
+  caNamespaces:
+    - "default"
+    - "vswh"
   unsealConfig:
     options:
       preFlightChecks: true
@@ -100,8 +103,10 @@ spec:
         roles:
           # Allow every pod in the default namespace to use the secret kv store
           - name: default
-            bound_service_account_names: ["default", "vault", "vault-secrets-webhook", "argocd-repo-server"]
-            bound_service_account_namespaces: ["default"]
+            bound_service_account_names: ["*"]
+            bound_service_account_namespaces:
+              - "default"
+              - "vswh"
             policies: allow_secrets
             ttl: 1h
     secrets:
