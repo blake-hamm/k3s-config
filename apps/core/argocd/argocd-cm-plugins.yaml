@@ -16,10 +16,3 @@ data:
       generate:
         command: ["argocd-vault-plugin"]
         args: ["generate", "./"]
-spec:
-  syncPolicy:
-    syncOptions:
-      - ApplyOutOfSyncOnly=true
-    automated:
-      prune: true
-      selfHeal: true
