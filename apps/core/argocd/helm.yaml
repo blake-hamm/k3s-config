@@ -53,6 +53,9 @@ spec:
               securityContext:
                 runAsNonRoot: true
                 runAsUser: 999
+              envFrom:
+                - secretRef:
+                    name: argocd-vault-plugin-credentials
               volumeMounts:
                 - mountPath: /var/run/argocd
                   name: var-files
@@ -71,23 +74,6 @@ spec:
         configs:
           params:
             server.insecure: true
-            # cmp:
-            #   create: true
-            #   plugins:
-            #     argocd-vault-plugin:
-            #       allowConcurrency: true
-            #       discover:
-            #         find:
-            #           command:
-            #             - sh
-            #             - "-c"
-            #             - "find . -name '*.yaml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."
-            #       generate:
-            #         command:
-            #           - argocd-vault-plugin
-            #           - generate
-            #           - "."
-            #       lockRepo: false
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
