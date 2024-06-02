@@ -52,13 +52,13 @@ spec:
         configs:
           params:
             server.insecure: true
-            # cmp:
-            #   create: true
-            #   plugins:
-            #     argocd-vault-plugin:
-            #       generate:
-            #         command: ["argocd-vault-plugin"]
-            #         args: ["generate", "./"]
+          cmp:
+            create: true
+            plugins:
+              argocd-vault-plugin:
+                generate:
+                  command: ["argocd-vault-plugin"]
+                  args: ["generate", "./"]
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
