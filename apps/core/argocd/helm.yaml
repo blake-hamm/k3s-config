@@ -29,8 +29,8 @@ spec:
           automountServiceAccountToken: true
           volumes:
             - configMap:
-                name: cmp-plugin
-              name: cmp-plugin
+                name: argocd-cmp-cm
+              name: argocd-cmp-cm
             - name: custom-tools
               emptyDir: {}
           initContainers:
@@ -63,7 +63,7 @@ spec:
                 # Register plugins into sidecar
                 - mountPath: /home/argocd/cmp-server/config/plugin.yaml
                   subPath: avp.yaml
-                  name: cmp-plugin
+                  name: argocd-cmp-cm
                 # Important: Mount tools into $PATH
                 - name: custom-tools
                   subPath: argocd-vault-plugin
