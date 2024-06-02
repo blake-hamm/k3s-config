@@ -29,36 +29,36 @@ spec:
           replicas: 2
         repoServer:
           replicas: 2
-          volumeMounts:
-            - name: custom-tools
-              mountPath: /usr/local/bin/argocd-vault-plugin
-              subPath: argocd-vault-plugin
+          # volumeMounts:
+          #   - name: custom-tools
+          #     mountPath: /usr/local/bin/argocd-vault-plugin
+          #     subPath: argocd-vault-plugin
           # envFrom:
           #   - secretRef:
           #     name: argocd-vault-plugin-credentials
           volumes:
             - name: custom-tools
               emptyDir: {}
-          initContainers:
-            - name: download-tools
-              image: alpine:3.8
-              command: [sh, -c]
-              env:
-                - name: AVP_VERSION
-                  value: "1.18.0"
-              args:
-                - >-
-                  wget -O argocd-vault-plugin https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v${AVP_VERSION}/argocd-vault-plugin_${AVP_VERSION}_linux_amd64 && chmod +x argocd-vault-plugin && mv argocd-vault-plugin /custom-tools/
-              volumeMounts:
-                - mountPath: /custom-tools
-                  name: custom-tools
-          cmp:
-            create: true
-            plugins:
-              argocd-vault-plugin:
-                generate:
-                  command: ["argocd-vault-plugin"]
-                  args: ["generate", "./"]
+              # initContainers:
+              #   - name: download-tools
+              #     image: alpine:3.8
+              #     command: [sh, -c]
+              #     env:
+              #       - name: AVP_VERSION
+              #         value: "1.18.0"
+              #     args:
+              #       - >-
+              #         wget -O argocd-vault-plugin https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v${AVP_VERSION}/argocd-vault-plugin_${AVP_VERSION}_linux_amd64 && chmod +x argocd-vault-plugin && mv argocd-vault-plugin /custom-tools/
+              #     volumeMounts:
+              #       - mountPath: /custom-tools
+              #         name: custom-tools
+              # cmp:
+              #   create: true
+              #   plugins:
+              #     argocd-vault-plugin:
+              #       generate:
+              #         command: ["argocd-vault-plugin"]
+              #         args: ["generate", "./"]
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
