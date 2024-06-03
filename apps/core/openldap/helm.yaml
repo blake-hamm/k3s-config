@@ -5,9 +5,7 @@ metadata:
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
-    vault.security.banzaicloud.io/vault-addr: "https://vault:8200"
     vault.security.banzaicloud.io/vault-tls-secret: vault-tls
-    vault.security.banzaicloud.io/vault-env-from-path: "secret/ldap"
 spec:
   destination:
     namespace: default
@@ -21,6 +19,8 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
+          adminPassword: vault:secret/ldap#ADMIN_PASSWORD
+          configPassword: vault:secret/ldap#ADMIN_PASSWORD
         # env:
         #   LDAP_ADMIN_PASSWORD: ${vault:secret/ldap#ADMIN_PASSWORD}
         #   LDAP_CONFIG_ADMIN_PASSWORD: ${vault:secret/ldap#ADMIN_PASSWORD}
