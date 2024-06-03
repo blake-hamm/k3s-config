@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: openldap
   namespace: default
+  labels:
+    app.kubernetes.io/name: vault
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
     vault.security.banzaicloud.io/vault-tls-secret: vault-tls
@@ -21,9 +23,6 @@ spec:
           ldapDomain: "bhamm-lab.com"
           adminPassword: vault:secret/ldap#ADMIN_PASSWORD
           configPassword: vault:secret/ldap#ADMIN_PASSWORD
-        # env:
-        #   LDAP_ADMIN_PASSWORD: ${vault:secret/ldap#ADMIN_PASSWORD}
-        #   LDAP_CONFIG_ADMIN_PASSWORD: ${vault:secret/ldap#ADMIN_PASSWORD}
         ltb-passwd:
           enabled: true
           ingress:
