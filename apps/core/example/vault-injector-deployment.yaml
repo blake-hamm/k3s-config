@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vault-injector-test
+  name: vault-injector-deployment-example
 spec:
   replicas: 1
   selector:

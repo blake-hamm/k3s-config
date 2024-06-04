@@ -19,8 +19,8 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
-          adminPassword: <path:secret/data/ldap#ADMIN_PASSWORD>
-          configPassword: <ADMIN_PASSWORD>
+          # Specifies an existing secret to be used for admin and config user passwords. The expected key are LDAP_ADMIN_PASSWORD and LDAP_CONFIG_ADMIN_PASSWORD.
+          existingSecret: "ldap-password"
         ltb-passwd:
           enabled: true
           ingress:
