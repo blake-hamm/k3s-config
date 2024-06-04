@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-vault-plugin-test
+  annotations:
+    avp.kubernetes.io/path: "secret/data/demosecret/aws"
+    argocd.argoproj.io/sync-wave: "-50"
+type: Opaque
+stringData:
+  AWS_SECRET_ACCESS_KEY: <AWS_SECRET_ACCESS_KEY>
