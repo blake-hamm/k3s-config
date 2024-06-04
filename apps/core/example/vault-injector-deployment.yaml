@@ -12,7 +12,7 @@ spec:
       labels:
         app.kubernetes.io/name: vault
       annotations:
-        vault.security.banzaicloud.io/vault-tls-secret: "vault-tls" # optional, the name of the Secret where the Vault CA cert is, if not defined it is not mounted
+        vault.security.banzaicloud.io/vault-tls-secret: "vault-tls"
     spec:
       serviceAccountName: default
       containers:
