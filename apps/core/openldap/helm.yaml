@@ -6,6 +6,7 @@ metadata:
   labels:
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
+    avp.kubernetes.io/path: "secret/data/ldap"
 spec:
   destination:
     namespace: default
@@ -19,6 +20,8 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
+          adminPassword: <ADMIN_PASSWORD>
+          configPassword: <ADMIN_PASSWORD>
         ltb-passwd:
           enabled: true
           ingress:
