@@ -88,7 +88,7 @@ spec:
                 # Important: Mount tools into $PATH
                 - name: custom-tools
                   subPath: argocd-vault-plugin
-                  mountPath: /usr/local/bin/argocd-vault-plugin-helm
+                  mountPath: /usr/local/bin/argocd-vault-plugin
             - name: avp-kustomize
               command: [/var/run/argocd/argocd-cmp-server]
               image: alpine/k8s:1.27.13
@@ -109,7 +109,7 @@ spec:
                 # Important: Mount tools into $PATH
                 - name: custom-tools
                   subPath: argocd-vault-plugin
-                  mountPath: /usr/local/bin/argocd-vault-plugin-kustomize
+                  mountPath: /usr/local/bin/argocd-vault-plugin
         configs:
           params:
             server.insecure: true
