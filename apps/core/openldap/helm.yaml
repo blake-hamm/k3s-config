@@ -3,7 +3,6 @@ kind: Application
 metadata:
   name: openldap
   namespace: default
-  labels:
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
     avp-helm.kubernetes.io/path: "secret/data/ldap"
