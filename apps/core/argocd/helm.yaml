@@ -70,6 +70,9 @@ spec:
                   mountPath: /usr/local/bin/argocd-vault-plugin
             - name: avp-helm
               command: [/var/run/argocd/argocd-cmp-server]
+              args:
+                - >-
+                  apt-get install -y kubernetes-helm
               image: registry.access.redhat.com/ubi8
               securityContext:
                 runAsNonRoot: true
