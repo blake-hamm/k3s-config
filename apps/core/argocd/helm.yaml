@@ -72,7 +72,7 @@ spec:
               command: [/var/run/argocd/argocd-cmp-server]
               args:
                 - >-
-                  apt-get install -y kubernetes-helm
+                  yum -y install kubernetes-helm
               image: registry.access.redhat.com/ubi8
               securityContext:
                 runAsNonRoot: true
