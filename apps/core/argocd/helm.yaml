@@ -70,7 +70,7 @@ spec:
                   mountPath: /usr/local/bin/argocd-vault-plugin
             - name: avp-helm
               command: [/var/run/argocd/argocd-cmp-server]
-              image: alpine/helm:3.14
+              image: alpine/k8s:1.27.13
               securityContext:
                 runAsNonRoot: true
                 runAsUser: 999
