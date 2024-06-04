@@ -19,12 +19,12 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
-        #   adminPassword: vault:secret/ldap#ADMIN_PASSWORD
-        #   configPassword: vault:secret/ldap#ADMIN_PASSWORD
-        # commonLabels:
-        #   app.kubernetes.io/name: vault
-        # commonAnnotations:
-        #   vault.security.banzaicloud.io/vault-tls-secret: vault-tls
+          adminPassword: vault:secret/ldap#ADMIN_PASSWORD
+          configPassword: vault:secret/ldap#ADMIN_PASSWORD
+        commonLabels:
+          app.kubernetes.io/name: vault
+        commonAnnotations:
+          vault.security.banzaicloud.io/vault-tls-secret: vault-tls
         ltb-passwd:
           enabled: true
           ingress:
