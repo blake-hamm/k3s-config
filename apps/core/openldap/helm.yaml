@@ -20,7 +20,7 @@ spec:
       valuesObject:
         global:
           ldapDomain: "bhamm-lab.com"
-          adminPassword: <ADMIN_PASSWORD>
+          adminPassword: <path:secret/data/ldap#ADMIN_PASSWORD>
           configPassword: <ADMIN_PASSWORD>
         ltb-passwd:
           enabled: true
