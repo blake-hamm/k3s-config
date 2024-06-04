@@ -6,7 +6,7 @@ metadata:
   labels:
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
-    avp.kubernetes.io/path: "secret/data/ldap"
+    avp-helm.kubernetes.io/path: "secret/data/ldap"
 spec:
   destination:
     namespace: default
