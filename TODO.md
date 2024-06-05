@@ -14,6 +14,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [x] Setup dashboard
   - [ ] Sync vault and k8s secrets (Try [external secrets](https://github.com/external-secrets/external-secrets) or [vault external secrets operator](https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator))
   - [ ] More fine grain permissions on `cr-raft.yaml`
+  - [ ] Use native kubernetes secrets and manage secrets (manually?) in vault
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
@@ -41,9 +42,11 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Argo events/workflows for backups and software updates
 - [ ] Telegram messages
 - [ ] Gitea
+- [ ] Vaultwarden
 - [ ] Wireguard
 - [ ] Deploy pihole and setup with opnsense
 - [ ] Update pihole records with external dns - https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md
+- [ ] Fine grain namespaces
 
 ### Some more fun services
 - [ ] Homelab dashboard
