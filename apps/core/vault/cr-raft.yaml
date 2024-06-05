@@ -104,9 +104,7 @@ spec:
           # Allow every pod in the default namespace to use the secret kv store
           - name: default
             bound_service_account_names: ["*"]
-            bound_service_account_namespaces:
-              - "default"
-              - "vswh"
+            bound_service_account_namespaces: ["*"]
             policies: allow_secrets
             ttl: 1h
     secrets:
