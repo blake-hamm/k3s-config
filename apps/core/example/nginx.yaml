@@ -56,6 +56,9 @@ spec:
   routes:
     - match: Host(`nginx.bhamm-lab.com`)
       kind: Rule
+      middlewares:
+        - name: lan-ips
+        - name: default-headers
       services:
         - name: nginx
           port: 80

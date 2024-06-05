@@ -8,29 +8,48 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Deploy multi node cluster
 - [x] LetsEncrypt acme challenge with cloudflare vault secret (manually setup)
 - [x] Traefik config for nginx
-- [ ] Finalize middleware to check host ip (only my framework)
+- [x] Finalize middleware to check host ip (only lan)
+- [x] Setup vault
+  - [x] Deploy helm chart
+  - [x] Setup dashboard
+  - [ ] Sync vault and k8s secrets (Try [external secrets](https://github.com/external-secrets/external-secrets) or [vault external secrets operator](https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator))
+  - [ ] More fine grain permissions on `cr-raft.yaml`
+  - [ ] Use native kubernetes secrets and manage secrets (manually?) in vault
 
-### Once vault is functioning as planned, some bonus feature are:
+### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
+  - [ ] Deploy openldap helm
+  - [ ] Deploy authelia helm
+  - [ ] Integrate with traefik
+  - [ ] Integrate with argocd
+- [ ] Setup valero for kubernetes backups
 - [ ] Expose UI's behind authelia:
   - [ ] Kubernetes
   - [ ] Traefik
   - [ ] Vault
-  - [ ] PiHole
   - [ ] Argo
+- [ ] Setup local internet/bare metal ip mapping
+- [ ] Setup PV on nfs
+- [ ] Setup backups with https://velero.io/
+
 
 ## After some UI's are accessible
-- [ ] Multi-node cluster
+- [x] Multi-node cluster
 - [ ] nfs persistent volume
 - [ ] Prometheus, grafana, loki
-- [ ] DNS records for bare metal and network equipment
+- [ ] DNS records for bare metal and network equipment (pi-hole)
 - [ ] Nextcloud w/ Aubrey access
-- [ ] Argo events/workflows w/ kubernetes-native backups
+- [ ] Argo events/workflows for backups and software updates
+- [ ] Telegram messages
 - [ ] Gitea
+- [ ] Vaultwarden
 - [ ] Wireguard
 - [ ] Deploy pihole and setup with opnsense
 - [ ] Update pihole records with external dns - https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md
+- [ ] Fine grain namespaces
 
 ### Some more fun services
 - [ ] Homelab dashboard
 - [ ] rr stack
+
+*At some point, let's refactor nix-config and k3s-config into a monorepo.*

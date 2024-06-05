@@ -29,7 +29,7 @@ watch sudo kubectl get all --all-namespaces
 Once the cluster us up and the CNI is working properly (`deployment.apps/calico-apiserver`), copy the `/etc/rancher/k3s/k3s.yaml` config to your local `.kube/config` and replace the ip address with your kube-vip address. Then, you can continue deploy services on your local:
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm
-helm install argocd argo/argo-cd --version 6.9.2 --values argo-values.yaml
+helm install argocd argo/argo-cd --version 7.1.0
 watch kubectl get all --all-namespaces
 ```
 
@@ -69,12 +69,26 @@ VAULT_UNSEAL_KEY=$(jq -r ".unseal_keys_b64[]" cluster-keys.json)
 sudo kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 ```
 
+To access via cli:
+```
+export VAULT_ADDR=https://vault.bhamm-lab.com
+vault status # Check status
+export VAULT_TOKEN=$(kubectl get secrets vault-unseal-keys -o jsonpath={.data.vault-root} | base64 --decode) # Get token
+
+```
+
 To sync vault secrets with kubernetes - https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator
 
 #### Cert Manager & DNS
 To create cf token:
 ```bash
 sudo kubectl -n cert-manager create secret generic cloudflare-token-secret --from-literal=cloudflare-token=<token>
+```
+
+#### Kubernetes dashboard
+To access the kubernetes dashboard:
+```bash
+kubectl create token admin-user
 ```
 
 ## Testing

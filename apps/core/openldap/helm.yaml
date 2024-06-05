@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openldap
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+    avp-helm.kubernetes.io/path: "secret/data/ldap"
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: openldap-stack-ha
+    repoURL: https://jp-gouin.github.io/helm-openldap/
+    targetRevision: 4.2.4
+    helm:
+      valuesObject:
+        global:
+          ldapDomain: "bhamm-lab.com"
+          # Specifies an existing secret to be used for admin and config user passwords. The expected key are LDAP_ADMIN_PASSWORD and LDAP_CONFIG_ADMIN_PASSWORD.
+          # existingSecret: ldap-password # Try using existing password
+          # Try inline avp secret
+          adminPassword: <path:secret/data/ldap#ADMIN_PASSWORD>
+          configPassword: <path:secret/data/ldap#ADMIN_PASSWORD>
+        ltb-passwd:
+          enabled: true
+          ingress:
+            enabled: false
+        phpldapadmin:
+          enabled: true
+          ingress:
+            enabled: false
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+    automated:
+      prune: true
+      selfHeal: true
