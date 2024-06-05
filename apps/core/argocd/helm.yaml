@@ -122,6 +122,7 @@ spec:
         configs:
           params:
             server.insecure: true
+            application.namespaces: "vault-secrets-webhook"
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
