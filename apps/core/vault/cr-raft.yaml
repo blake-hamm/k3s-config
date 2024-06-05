@@ -59,9 +59,7 @@ spec:
     - name: vault-raft
       mountPath: /vault/file
   veleroEnabled: true
-  caNamespaces:
-    - "default"
-    - "vswh"
+  caNamespaces: ["*"]
   unsealConfig:
     options:
       preFlightChecks: true

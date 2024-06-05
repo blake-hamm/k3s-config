@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
-    namespace: vault-secrets-webhook
+    namespace: vswh
     server: https://kubernetes.default.svc
   project: default
   source:
