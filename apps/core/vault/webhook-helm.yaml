@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: vault-secrets-webhook
-  namespace: default
+  namespace: vault-secrets-webhook
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
