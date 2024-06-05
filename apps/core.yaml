@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/blake-hamm/k3s-config.git
     path: apps/core
-    targetRevision: feature/growth
+    targetRevision: feature/growth-external-secrets
     directory:
       recurse: true
   destination:

@@ -4,8 +4,10 @@ let
   pkgs = import nixpkgs { config = { allowUnfree = true; }; overlays = []; };
 in
 pkgs.mkShell {
-  buildInputs = [
-    pkgs.helm
-    pkgs.vault
+  buildInputs = with pkgs; [
+    vault
+    kubectl
+    kubernetes-helm
+    argocd
   ];
 }
