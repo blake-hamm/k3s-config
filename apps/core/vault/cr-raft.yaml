@@ -60,7 +60,6 @@ spec:
       mountPath: /vault/file
   veleroEnabled: true
   caNamespaces: ["*"]
-  existingTlsSecretName: bhamm-lab-tls
   unsealConfig:
     options:
       preFlightChecks: true
