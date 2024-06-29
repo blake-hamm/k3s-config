@@ -131,6 +131,6 @@ spec:
           #     data:
           #       data:
           #         MYSQL_ROOT_PASSWORD: s3cr3t
-  secretInitsConfig:
-    - name: VAULT_LOG_LEVEL
-      value: debug
+  # secretInitsConfig:
+  #   - name: VAULT_LOG_LEVEL
+  #     value: debug

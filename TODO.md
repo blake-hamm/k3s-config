@@ -31,6 +31,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Setup local internet/bare metal ip mapping
 - [ ] Setup PV on nfs
 - [ ] Setup backups with https://velero.io/
+- [ ] Add omada controller https://github.com/mbentley/docker-omada-controller
 
 
 ## After some UI's are accessible
