@@ -12,9 +12,9 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Setup vault
   - [x] Deploy helm chart
   - [x] Setup dashboard
-  - [ ] Sync vault and k8s secrets (Try [external secrets](https://github.com/external-secrets/external-secrets) or [vault external secrets operator](https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator))
+  - [x] Sync vault and k8s secrets (Try [external secrets](https://github.com/external-secrets/external-secrets) or [vault external secrets operator](https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator))
   - [ ] More fine grain permissions on `cr-raft.yaml`
-  - [ ] Use native kubernetes secrets and manage secrets (manually?) in vault
+  - [x] Use native kubernetes secrets and manage secrets (manually?) in vault
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
@@ -31,6 +31,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Setup local internet/bare metal ip mapping
 - [ ] Setup PV on nfs
 - [ ] Setup backups with https://velero.io/
+- [ ] Add omada controller https://github.com/mbentley/docker-omada-controller
 
 
 ## After some UI's are accessible
