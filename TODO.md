@@ -16,6 +16,12 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [ ] More fine grain permissions on `cr-raft.yaml`
   - [x] Use native kubernetes secrets and manage secrets (manually?) in vault
 
+### Setup Servarr
+- [ ] Setup PV on nfs
+- [ ] Deploy Prowlarr
+- [ ] Deploy Sonarr/Radarr
+- [ ] Deploy Qbittorent with vpn sidecar (mullvad + gluetun) or deluge
+
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
   - [ ] Deploy openldap helm
