@@ -67,7 +67,7 @@ spec:
       kind: Rule
       middlewares:
         - name: default-headers
-        - name: servarr-cors
+          # - name: servarr-cors
       services:
         - name: prowlarr
           port: 9696
