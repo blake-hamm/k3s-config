@@ -3,11 +3,19 @@ apiVersion: apps/v1
 metadata:
   name: prowlarr
   namespace: default
+  labels:
+    app: prowlarr
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: prowlarr
   template:
+    metadata:
+      labels:
+        app: prowlarr
     spec:
       containers:
         - name: prowlarr
