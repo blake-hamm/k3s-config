@@ -23,12 +23,18 @@ spec:
           ports:
             - containerPort: 9696
           env:
-            PROWLARR__APP__INSTANCENAME: Prowlarr
-            PROWLARR__APP__THEME: dark
-            PROWLARR__AUTH__METHOD: External
-            PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
-            PROWLARR__LOG__DBENABLED: "False"
-            PROWLARR__LOG__LEVEL: info
+            - name: PROWLARR__APP__INSTANCENAME
+              value: Prowlarr
+            - name: PROWLARR__APP__THEME
+              value: dark
+            - name: PROWLARR__AUTH__METHOD
+              value: External
+            - name: PROWLARR__AUTH__REQUIRED
+              value: DisabledForLocalAddresses
+            - name: PROWLARR__LOG__DBENABLED
+              value: "False"
+            - name: PROWLARR__LOG__LEVEL
+              value: info
 ---
 apiVersion: v1
 kind: Service
