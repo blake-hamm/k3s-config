@@ -17,7 +17,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [x] Use native kubernetes secrets and manage secrets (manually?) in vault
 
 ### Setup Servarr
-- [ ] Setup PV on nfs
+- [x] Setup PV on nfs
 - [ ] Deploy Prowlarr
 - [ ] Deploy Sonarr/Radarr
 - [ ] Deploy Qbittorent with vpn sidecar (mullvad + gluetun) or deluge
