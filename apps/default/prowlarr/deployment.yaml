@@ -25,10 +25,6 @@ spec:
           volumeMounts:
             - name: prowlarr-config-volume
               mountPath: /config
-          volumes:
-            - name: prowlarr-config-volume
-              persistentVolumeClaim:
-                claimName: prowlarr-config-pvc
           env:
             - name: PROWLARR__APP__INSTANCENAME
               value: Prowlarr
@@ -42,3 +38,7 @@ spec:
               value: "False"
             - name: PROWLARR__LOG__LEVEL
               value: info
+      volumes:
+        - name: prowlarr-config-volume
+          persistentVolumeClaim:
+            claimName: prowlarr-config-pvc
