@@ -65,11 +65,11 @@ spec:
             - name: QBITTORRENT_WEBUI_PORT
               value: "8080"
             - name: CRON_ENABLED
-              value: "true"
+              value: true
             - name: CRON_SCHEDULE
               value: "*/5 * * * *"
             - name: LOG_TIMESTAMP
-              value: "false"
+              value: false
       volumes:
         - name: qbittorrent-config-volume
           persistentVolumeClaim:
