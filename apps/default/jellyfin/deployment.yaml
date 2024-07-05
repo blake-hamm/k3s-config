@@ -21,16 +21,17 @@ spec:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:latest
           ports:
-            - containerPort: 8096
-            - containerPort: 1900
+            - containerPort: 8096 # HTTP UI port
+            - containerPort: 1900 # DLNA SSDP port
+            - containerPort: 7359 # DLNA services port
           volumeMounts:
             - name: jellyfin-config-volume
               mountPath: /config
             - name: qbittorrent-downloads-volume
               mountPath: /downloads
           env:
-            - name: PROWLARR__APP__INSTANCENAME
-              value: Prowlarr
+            - name: JELLYFIN_NETWORK_DISCOVERY_ENABLED
+              value: "true"
       volumes:
         - name: jellyfin-config-volume
           persistentVolumeClaim:
