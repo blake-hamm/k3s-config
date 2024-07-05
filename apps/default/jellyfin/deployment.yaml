@@ -32,6 +32,8 @@ spec:
           env:
             - name: JELLYFIN_NETWORK_DISCOVERY_ENABLED
               value: "true"
+            - name: JELLYFIN_PublishedServerUrl
+              value: jellyfin.bhamm-lab.com
       volumes:
         - name: jellyfin-config-volume
           persistentVolumeClaim:
