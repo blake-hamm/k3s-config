@@ -1,29 +1,29 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: jellyfinn
+  name: jellyfin
   namespace: default
   labels:
-    app: jellyfinn
+    app: jellyfin
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jellyfinn
+      app: jellyfin
   template:
     metadata:
       labels:
-        app: jellyfinn
+        app: jellyfin
     spec:
       containers:
-        - name: jellyfinn
-          image: lscr.io/linuxserver/jellyfinn:latest
+        - name: jellyfin
+          image: lscr.io/linuxserver/jellyfin:latest
           ports:
             - containerPort: 8096
           volumeMounts:
-            - name: jellyfinn-config-volume
+            - name: jellyfin-config-volume
               mountPath: /config
             - name: qbittorrent-downloads-volume
               mountPath: /downloads
@@ -31,9 +31,9 @@ spec:
             - name: PROWLARR__APP__INSTANCENAME
               value: Prowlarr
       volumes:
-        - name: jellyfinn-config-volume
+        - name: jellyfin-config-volume
           persistentVolumeClaim:
-            claimName: jellyfinn-config-pvc
+            claimName: jellyfin-config-pvc
         - name: qbittorrent-downloads-volume
           persistentVolumeClaim:
             claimName: qbittorrent-downloads-pvc

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jellyfinn-config-pvc
+  name: jellyfin-config-pvc
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-100"
