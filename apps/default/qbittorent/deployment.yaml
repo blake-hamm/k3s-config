@@ -26,19 +26,8 @@ spec:
             - name: qbittorrent-downloads-volume
               mountPath: /downloads
           env:
-            - name: UMASK
-              value: "022"
             - name: QBITTORRENT__PORT
               value: "8080"
-          securityContext:
-            runAsUser: 2000
-            runAsGroup: 2000
-            runAsNonRoot: true
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            capabilities:
-              drop:
-                - ALL
         - name: gluetun
           image: qmcgaw/gluetun:latest
           env:
