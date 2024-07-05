@@ -43,6 +43,10 @@ spec:
               value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
+            - name: FIREWALL_INPUT_PORTS
+              value: 8080
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.96.0.0/12,10.244.0.0/16,10.42.0.0/16 # Allow access to k8s subnets
           envFrom:
             - secretRef:
                 name: qbittorrent-secret
