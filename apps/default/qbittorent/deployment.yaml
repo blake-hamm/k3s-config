@@ -35,9 +35,9 @@ spec:
             - name: VPN_INTERFACE
               value: wg0
             - name: VPN_ENDPOINT_PORT
-              value: 51820
+              value: "51820"
             - name: VPN_PORT_FORWARDING
-              value: on
+              value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
           envFrom:
