@@ -34,3 +34,6 @@ spec:
         - name: jellyfinn-config-volume
           persistentVolumeClaim:
             claimName: jellyfinn-config-pvc
+        - name: qbittorrent-downloads-volume
+          persistentVolumeClaim:
+            claimName: qbittorrent-downloads-pvc
