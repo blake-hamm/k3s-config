@@ -19,7 +19,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 ### Setup Servarr
 - [x] Setup PV on nfs
 - [x] Deploy Prowlarr
-- [ ] Deploy Sonarr/Radarr
+- [x] Deploy Sonarr/Radarr
 - [ ] Deploy Qbittorent with vpn sidecar (mullvad + gluetun) or deluge
 
 ### Once vault is functioning as planned, next steps are:
