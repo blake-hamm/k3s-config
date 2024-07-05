@@ -43,6 +43,11 @@ spec:
           envFrom:
             - secretRef:
                 name: qbittorrent-secret
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+            allowPrivilegeEscalation: false
       volumes:
         - name: qbittorrent-config-volume
           persistentVolumeClaim:
