@@ -6,3 +6,11 @@ A monorepo with an opinionated take on k3s. It assumes you have k3s VM hosts run
 It is similar to standard k3s, but instead uses kube-vip for a load balancer and virtual ip solution. This way, k3s is accessible as an ip on your local network. This is configured in the `manifests` directory.
 
 Moreover, we propose a derrivative architecture of k3s that provides tooling for a **homelab**. It automatically deployes argocd and manages additional kubernetes resource with gitops in the `apps` directory.
+
+
+## Inspiration repos
+ - https://github.com/szinn/k8s-homelab/
+ - https://github.com/auricom/home-ops/
+ - https://github.com/joryirving/home-ops/
+ - https://github.com/onedr0p/home-ops/
+ - https://github.com/bjw-s/home-ops
