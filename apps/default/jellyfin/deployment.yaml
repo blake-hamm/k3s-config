@@ -22,6 +22,7 @@ spec:
           image: lscr.io/linuxserver/jellyfin:latest
           ports:
             - containerPort: 8096
+            - containerPort: 1900
           volumeMounts:
             - name: jellyfin-config-volume
               mountPath: /config
