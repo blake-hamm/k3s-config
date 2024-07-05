@@ -1,0 +1,22 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jellyfinn
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`jellyfinn.bhamm-lab.com`)
+      kind: Rule
+      middlewares:
+        - name: default-headers
+      services:
+        - name: jellyfinn
+          port: 8096
+  tls:
+    secretName: bhamm-lab-tls

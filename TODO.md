@@ -22,6 +22,9 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Deploy Sonarr/Radarr
 - [x] Deploy Qbittorent
   - [x] Deploy glueten w/ protonvpn config
+- [ ] Deploy Jellyfin
+- [ ] Deploy Jellyseerr
+- [ ] Deploy Unpackarr
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
