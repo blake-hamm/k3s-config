@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: qbittorent-config-pvc
+  name: qbittorrent-config-pvc
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-100"
@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: qbittorent-downloads-pvc
+  name: qbittorrent-downloads-pvc
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-100"
