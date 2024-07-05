@@ -68,6 +68,9 @@ spec:
               value: "*/5 * * * *"
             - name: LOG_TIMESTAMP
               value: "false"
+          volumeMounts:
+            - name: port-forward-config
+              mountPath: /config
       volumes:
         - name: qbittorrent-config-volume
           persistentVolumeClaim:
@@ -75,3 +78,5 @@ spec:
         - name: qbittorrent-downloads-volume
           persistentVolumeClaim:
             claimName: qbittorrent-downloads-pvc
+        - name: port-forward-config
+          emptyDir: {}
