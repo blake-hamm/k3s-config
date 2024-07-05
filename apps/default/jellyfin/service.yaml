@@ -11,5 +11,17 @@ spec:
   ports:
     - targetPort: 8096
       port: 8096
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin-dnla
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  selector:
+    app: jellyfin
+  ports:
     - targetPort: 1900
       port: 1900
