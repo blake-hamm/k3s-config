@@ -27,7 +27,8 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Deploy Emby
 - [ ] Deploy Jellyseerr
 - [ ] Deploy Unpackarr
-- [ ] Deploy Flaresolverr
+- [x] Deploy Flaresolverr
+- [ ] Deploy sabnzbd or nzbget
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
