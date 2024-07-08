@@ -20,13 +20,13 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Setup PV on nfs
 - [x] Deploy Prowlarr
 - [x] Deploy Sonarr/Radarr
-  - [ ] Finetune settings based on trash guides
+  - [x] Finetune settings based on trash guides
 - [x] Deploy Qbittorent
   - [x] Deploy glueten w/ protonvpn config
 - [x] Deploy Jellyfin
 - [ ] Deploy Emby
 - [ ] Deploy Jellyseerr
-- [ ] Deploy Unpackarr
+- [x] Deploy Unpackarr
 - [x] Deploy Flaresolverr
 - [ ] Deploy sabnzbd or nzbget
 
