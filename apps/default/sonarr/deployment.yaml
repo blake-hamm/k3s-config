@@ -43,7 +43,7 @@ spec:
       volumes:
         - name: sonarr-config-volume
           persistentVolumeClaim:
-            claimName: sonarr-config-pvc
+            claimName: sonarr-config
         - name: qbittorrent-downloads-volume
           persistentVolumeClaim:
             claimName: qbittorrent-downloads-pvc

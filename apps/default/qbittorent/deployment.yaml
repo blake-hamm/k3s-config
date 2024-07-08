@@ -78,7 +78,7 @@ spec:
       volumes:
         - name: qbittorrent-config-volume
           persistentVolumeClaim:
-            claimName: qbittorrent-config-pvc
+            claimName: qbittorrent-config
         - name: qbittorrent-downloads-volume
           persistentVolumeClaim:
             claimName: qbittorrent-downloads-pvc
