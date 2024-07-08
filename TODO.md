@@ -20,9 +20,11 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Setup PV on nfs
 - [x] Deploy Prowlarr
 - [x] Deploy Sonarr/Radarr
+  - [ ] Finetune settings based on trash guides
 - [x] Deploy Qbittorent
   - [x] Deploy glueten w/ protonvpn config
-- [ ] Deploy Jellyfin
+- [x] Deploy Jellyfin
+- [ ] Deploy Emby
 - [ ] Deploy Jellyseerr
 - [ ] Deploy Unpackarr
 

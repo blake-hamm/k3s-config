@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:latest
+          image: jellyfin/jellyfin:latest
           ports:
             - containerPort: 8096 # HTTP UI port
             - containerPort: 1900 # DLNA SSDP port
@@ -27,17 +27,22 @@ spec:
           volumeMounts:
             - name: jellyfin-config-volume
               mountPath: /config
+            - name: jellyfin-cache-volume
+              mountPath: /cache
             - name: qbittorrent-downloads-volume
               mountPath: /downloads
           env:
             - name: JELLYFIN_NETWORK_DISCOVERY_ENABLED
               value: "true"
             - name: JELLYFIN_PublishedServerUrl
-              value: jellyfin.bhamm-lab.com
+              value: https://jellyfin.bhamm-lab.com
       volumes:
         - name: jellyfin-config-volume
           persistentVolumeClaim:
             claimName: jellyfin-config-pvc
+        - name: jellyfin-cache-volume
+          persistentVolumeClaim:
+            claimName: jellyfin-cache-pvc
         - name: qbittorrent-downloads-volume
           persistentVolumeClaim:
             claimName: qbittorrent-downloads-pvc
