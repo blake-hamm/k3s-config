@@ -14,7 +14,6 @@ spec:
     - kind: Rule
       match: Host(`argocd.bhamm-lab.com`)
       middlewares:
-        - name: lan-ips
         - name: default-headers
       services:
         - name: argocd-server
