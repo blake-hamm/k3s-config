@@ -7,15 +7,17 @@ metadata:
 spec:
   # Configures Calico networking.
   calicoNetwork:
+    mtu: 1450 # TODO: Revisit this with ceph
+    bgp: Disabled
     # Note: The ipPools section cannot be modified post-install.
     ipPools:
       - name: default-ipv4-ippool
         blockSize: 26
         cidr: 10.42.0.0/16 # Also configured in k3s.nix
-        encapsulation: VXLANCrossSubnet
+        encapsulation: VXLAN
         natOutgoing: Enabled
         nodeSelector: all()
-    containerIPForwarding: "Enabled"
+    containerIPForwarding: Enabled
 ---
 # This section configures the Calico API server.
 # For more information, see: https://docs.tigera.io/calico/latest/reference/installation/api#operator.tigera.io/v1.APIServer
