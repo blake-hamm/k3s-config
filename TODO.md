@@ -24,11 +24,25 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Deploy Qbittorent
   - [x] Deploy glueten w/ protonvpn config
 - [x] Deploy Jellyfin
-- [ ] Deploy Emby
-- [ ] Deploy Jellyseerr
-- [x] Deploy Unpackarr
+- [x] Deploy Emby
+- [ ] Deploy Jellyseerr (opt)
+- [ ] Configure Unpackarr
 - [x] Deploy Flaresolverr
-- [ ] Deploy sabnzbd or nzbget
+- [ ] Deploy sabnzbd or nzbget (opt)
+
+### Let's setup monitoring:
+- [ ] Deploy:
+  - [ ] Prometheus
+  - [ ] Grafana
+  - [ ] Loki
+
+### Let's optimize our cluster and it's storage:
+- [ ] Create monorepo
+- [ ] Setup 2 other laptop nodes
+- [ ] Re-deploy k3s server and agent nodes from aorus to the new nodes
+- [ ] Setup ceph cluster with rook
+- [ ] Leverage ceph cluster for VM's
+- [ ] Create storageClass for ceph
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
@@ -50,8 +64,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 
 ## After some UI's are accessible
 - [x] Multi-node cluster
-- [ ] nfs persistent volume
-- [ ] Prometheus, grafana, loki
+- [x] nfs persistent volume
 - [ ] DNS records for bare metal and network equipment (pi-hole)
 - [ ] Nextcloud w/ Aubrey access
 - [ ] Argo events/workflows for backups and software updates

@@ -9,5 +9,6 @@ pkgs.mkShell {
     kubectl
     kubernetes-helm
     argocd
+    k9s
   ];
 }
