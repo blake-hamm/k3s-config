@@ -11,9 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: prometheus-community/kube-prometheus-stack
+    chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 61.3.1
+    targetRevision: 61.2.0
     # helm:
     #   valuesObject:
     #     globalArguments:
