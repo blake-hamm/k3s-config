@@ -24,8 +24,8 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    ignoreDifferences: # https://github.com/argoproj/argo-cd/issues/8128
-      - group: monitoring.coreos.com
-        kind: ServiceMonitor
-        jqPathExpressions:
-          - .spec.endpoints[]?.relabelings[]?.action
+  ignoreDifferences: # https://github.com/argoproj/argo-cd/issues/8128
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      jqPathExpressions:
+        - .spec.endpoints[]?.relabelings[]?.action
