@@ -24,7 +24,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  ignoreDifferences: # https://github.com/argoproj/argo-cd/issues/8128
+  ignoreDifferences: # https://github.com/argoproj/argo-cd/issues/11074
     - group: monitoring.coreos.com
       kind: ServiceMonitor
       jqPathExpressions:
