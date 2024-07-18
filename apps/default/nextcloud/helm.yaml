@@ -16,7 +16,8 @@ spec:
     targetRevision: 5.2.0
     helm:
       valuesObject:
-        nextcloud.host: nextcloud.bhamm-lab.com
+        nextcloud:
+          host: nextcloud.bhamm-lab.com
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
