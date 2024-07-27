@@ -38,7 +38,6 @@ spec:
     - kind: Rule
       match: Host(`ldap-admin.bhamm-lab.com`)
       middlewares:
-        - name: lan-ips
         - name: default-headers
       services:
         - name: openldap-phpldapadmin
