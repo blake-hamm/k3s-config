@@ -23,6 +23,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [x] Finetune settings based on trash guides
 - [x] Deploy Qbittorent
   - [x] Deploy glueten w/ protonvpn config
+  - [ ] Troubleshoot automated port forwarding config
 - [x] Deploy Jellyfin
 - [x] Deploy Emby
 - [ ] Deploy Jellyseerr (opt)
@@ -43,6 +44,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Setup ceph cluster with rook
 - [ ] Leverage ceph cluster for VM's
 - [ ] Create storageClass for ceph
+- [ ] Setup postgresql db
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
