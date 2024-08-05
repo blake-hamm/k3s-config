@@ -48,7 +48,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
-  - [ ] Deploy openldap helm
+  - [ ] Deploy lldap
   - [ ] Deploy authelia helm
   - [ ] Integrate with traefik
   - [ ] Integrate with argocd
@@ -61,7 +61,11 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Setup local internet/bare metal ip mapping
 - [ ] Setup PV on nfs
 - [ ] Setup backups with https://velero.io/
-- [ ] Add omada controller https://github.com/mbentley/docker-omada-controller
+- [ ] Add omada controller https://github.com/mbentley/docker-omada-controllerh
+- [ ] Setup postgresql db
+
+### Time to figure out vlans:
+- [ ] Deploy omada cloud controller
 
 
 ## After some UI's are accessible
