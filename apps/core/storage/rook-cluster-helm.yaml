@@ -95,13 +95,6 @@ spec:
               metadataServer:
                 activeCount: 1
                 activeStandby: true
-                resources:
-                  limits:
-                    cpu: "2000m"
-                    memory: "4Gi"
-                  requests:
-                    cpu: "1000m"
-                    memory: "4Gi"
                 priorityClassName: system-cluster-critical
             storageClass:
               enabled: true
@@ -159,28 +152,16 @@ spec:
               preservePoolsOnDelete: true
               gateway:
                 port: 80
-                resources:
-                  limits:
-                    cpu: "2000m"
-                    memory: "2Gi"
-                  requests:
-                    cpu: "1000m"
-                    memory: "1Gi"
                 # securePort: 443
                 # sslCertificateRef:
                 instances: 1
                 priorityClassName: system-cluster-critical
-              healthCheck:
-                bucket:
-                  interval: 60s
             storageClass:
               enabled: true
               name: ceph-bucket
               reclaimPolicy: Delete
               # see https://github.com/rook/rook/blob/master/Documentation/ceph-object-bucket-claim.md#storageclass for available configuration
-              parameters:
-                # note: objectStoreNamespace and objectStoreName are configured by the chart
-                region: us-east-1
+              # parameters:
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
