@@ -99,6 +99,8 @@ spec:
     policies:
       - name: allow_secrets
         rules: path "secret/*" { capabilities = ["create", "read", "update", "delete", "list"] }
+      - name: read_secrets
+        rules: path "secret/*" { capabilities = ["read", "list"] }
     auth:
       - type: kubernetes
         roles:
@@ -108,6 +110,15 @@ spec:
             bound_service_account_namespaces: ["*"]
             policies: allow_secrets
             ttl: 1h
+      - type: approle
+        roles:
+          - name: nixos
+            policies: read_secrets
+            secret_id_ttl: 1h
+            # token_num_uses: 10
+            token_ttl: 1h
+            token_max_ttl: 1h
+            # secret_id_num_uses: 40
     secrets:
       - path: secret
         type: kv

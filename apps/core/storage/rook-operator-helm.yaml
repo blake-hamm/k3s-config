@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nfs
+  name: rook-operator
   namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "-200"
@@ -11,16 +11,16 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: nfs-subdir-external-provisioner
-    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
-    targetRevision: 4.0.18
-    helm:
-      valuesObject:
-        storageClass:
-          defaultClass: false
-        nfs:
-          server: 192.168.69.12
-          path: /zpool_ssd/kubernetes
+    chart: rook-ceph
+    repoURL: https://charts.rook.io/release
+    targetRevision: v1.14.9
+    # helm:
+    #   valuesObject:
+    #     storageClass:
+    #       defaultClass: true
+    #     nfs:
+    #       server: 192.168.69.12
+    #       path: /zpool_ssd/kubernetes
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
