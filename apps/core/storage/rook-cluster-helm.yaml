@@ -161,7 +161,9 @@ spec:
               name: ceph-bucket
               reclaimPolicy: Delete
               # see https://github.com/rook/rook/blob/master/Documentation/ceph-object-bucket-claim.md#storageclass for available configuration
-              # parameters:
+              parameters:
+                # note: objectStoreNamespace and objectStoreName are configured by the chart
+                region: us-east-1
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
