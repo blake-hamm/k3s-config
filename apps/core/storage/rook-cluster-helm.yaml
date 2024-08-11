@@ -16,6 +16,7 @@ spec:
     targetRevision: v1.13.6
     helm:
       valuesObject: # https://github.com/rook/rook/blob/release-1.9/deploy/charts/rook-ceph-cluster/values.yaml
+        operatorNamespace: default
         cephClusterSpec:
           storage:
             useAllNodes: false
