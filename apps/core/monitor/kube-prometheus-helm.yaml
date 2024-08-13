@@ -16,6 +16,10 @@ spec:
     targetRevision: 61.2.0
     helm:
       valuesObject:
+        prometheus:
+          serviceMonitorNamespaceSelector:
+            matchNames:
+              - default
         grafana:
           admin:
             existingSecret: monitoring-login
