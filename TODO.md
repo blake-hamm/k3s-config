@@ -33,18 +33,27 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 
 ### Let's setup monitoring:
 - [ ] Deploy:
-  - [ ] Prometheus
-  - [ ] Grafana
+  - [x] Prometheus
+  - [x] Grafana
+  - [ ] Use external secret for password
+  - [ ] More fine grain needs for dashboards
+  - [ ] Setup
+    - [ ] ceph
+    - [ ] traefik
+    - [ ] metallb
+    - [ ] zfs/nfs
+    - [ ] postgres
+    - [ ] vault
+    - [ ] external-secrets
+    - [ ] cert-manager
+    - [ ] aorus node
+    - [ ] opnsense
+    - [ ] argocd
   - [ ] Loki
 
 ### Let's optimize our cluster and it's storage:
-- [ ] Create monorepo
-- [ ] Setup 2 other laptop nodes
-- [ ] Re-deploy k3s server and agent nodes from aorus to the new nodes
-- [ ] Setup ceph cluster with rook
-- [ ] Leverage ceph cluster for VM's
-- [ ] Create storageClass for ceph
-- [ ] Setup postgresql db
+- [x] Setup bare metal nodes
+- [x] Setup ceph cluster with rook
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware
