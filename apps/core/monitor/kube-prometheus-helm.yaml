@@ -21,7 +21,6 @@ spec:
             existingSecret: monitoring-login
             userKey: admin-user
             passwordKey: admin-password
-            #     globalArguments:
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

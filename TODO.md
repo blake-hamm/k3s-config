@@ -35,8 +35,8 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Deploy:
   - [x] Prometheus
   - [x] Grafana
-  - [ ] Use external secret for password
-  - [ ] More fine grain needs for dashboards
+  - [x] Use external secret for password
+  - [x] More fine grain needs for helm dashboards (remove windows and mac)
   - [ ] Setup
     - [ ] ceph
     - [ ] traefik
