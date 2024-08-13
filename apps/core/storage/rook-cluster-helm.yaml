@@ -18,6 +18,7 @@ spec:
       valuesObject: # https://github.com/rook/rook/blob/release-1.9/deploy/charts/rook-ceph-cluster/values.yaml
         monitoring:
           enabled: true
+          createPrometheusRules: true
         operatorNamespace: default
         clusterName: rook-ceph
         cephClusterSpec:
