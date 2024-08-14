@@ -18,11 +18,10 @@ spec:
       valuesObject:
         prometheus:
           prometheusSpec:
-            serviceMonitorSelectorNilUsesHelmValues: false
-            serviceMonitorSelector: {}
-        #     serviceMonitorNamespaceSelector:
-        #       matchNames:
-        #         - default
+            serviceMonitorSelector:
+              matchLabels:
+                Release: monitor # Default
+                team: rook
         grafana:
           admin:
             existingSecret: monitoring-login
