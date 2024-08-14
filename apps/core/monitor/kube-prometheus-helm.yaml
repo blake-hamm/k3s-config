@@ -18,9 +18,6 @@ spec:
       valuesObject:
         prometheus:
           prometheusSpec:
-            serviceMonitorNamespaceSelector:
-              matchNames:
-                - default
             serviceMonitorSelector:
               matchLabels:
                 team: rook
