@@ -26,6 +26,12 @@ spec:
             existingSecret: monitoring-login
             userKey: admin-user
             passwordKey: admin-password
+          dashboards:
+            default:
+              ceph-cluster:
+                gnetId: 2842
+                revision: 17
+                datasource: default
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
