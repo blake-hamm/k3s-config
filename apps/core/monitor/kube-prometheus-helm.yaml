@@ -17,9 +17,13 @@ spec:
     helm:
       valuesObject:
         prometheus:
-          serviceMonitorSelector:
-            matchLabels:
-              team: rook
+          prometheusSpec:
+            serviceMonitorNamespaceSelector:
+              matchNames:
+                - default
+            serviceMonitorSelector:
+              matchLabels:
+                team: rook
         grafana:
           admin:
             existingSecret: monitoring-login
