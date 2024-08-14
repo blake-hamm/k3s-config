@@ -22,7 +22,7 @@ spec:
           serviceMonitor:
             enabled: false
             labels:
-              Release: monitor
+              release: monitor
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

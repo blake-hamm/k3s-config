@@ -24,7 +24,7 @@ spec:
         cephClusterSpec:
           labels:
             monitoring:
-              Release: monitor
+              release: monitor
           storage:
             useAllNodes: false
             useAllDevices: false
