@@ -16,13 +16,13 @@ spec:
     targetRevision: 61.2.0
     helm:
       valuesObject:
-        prometheus:
-          prometheusSpec:
-            serviceMonitorSelector:
-              matchLabels:
-                Release: monitor # Default
-              matchLabels:
-                team: rook
+        # prometheus:
+        #   prometheusSpec:
+        #     serviceMonitorSelector:
+        #       matchLabels:
+        #         Release: monitor # Default
+        #       matchLabels:
+        #         team: rook
         grafana:
           admin:
             existingSecret: monitoring-login

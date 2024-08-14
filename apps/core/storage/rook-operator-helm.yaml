@@ -18,6 +18,11 @@ spec:
       valuesObject:
         monitoring:
           enabled: true
+        csi:
+          serviceMonitor:
+            enabled: false
+            labels:
+              Release: monitor
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

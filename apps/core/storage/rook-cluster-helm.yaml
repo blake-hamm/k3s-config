@@ -22,6 +22,9 @@ spec:
         operatorNamespace: default
         clusterName: rook-ceph
         cephClusterSpec:
+          labels:
+            monitoring:
+              Release: monitor
           storage:
             useAllNodes: false
             useAllDevices: false
