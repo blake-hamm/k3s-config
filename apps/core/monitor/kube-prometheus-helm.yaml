@@ -18,9 +18,12 @@ spec:
       valuesObject:
         prometheus:
           prometheusSpec:
-            serviceMonitorSelector:
-              matchLabels:
-                team: rook
+            serviceMonitorNamespaceSelector:
+              matchNames:
+                - default
+                # serviceMonitorSelector:
+                #   matchLabels:
+                #     team: rook
         grafana:
           admin:
             existingSecret: monitoring-login
@@ -31,7 +34,7 @@ spec:
               ceph-cluster:
                 gnetId: 2842
                 revision: 17
-                datasource: default
+                datasource: Prometheus
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
