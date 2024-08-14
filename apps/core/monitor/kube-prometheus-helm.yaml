@@ -21,6 +21,7 @@ spec:
             serviceMonitorSelector:
               matchLabels:
                 Release: monitor # Default
+              matchLabels:
                 team: rook
         grafana:
           admin:
