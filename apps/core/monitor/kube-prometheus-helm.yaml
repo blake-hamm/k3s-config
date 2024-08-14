@@ -18,7 +18,8 @@ spec:
       valuesObject:
         prometheus:
           prometheusSpec:
-            serviceMonitorSelector: {}
+            serviceMonitorSelectorNilUsesHelmValues: false
+            # serviceMonitorSelector: {}
         #     serviceMonitorNamespaceSelector:
         #       matchNames:
         #         - default
