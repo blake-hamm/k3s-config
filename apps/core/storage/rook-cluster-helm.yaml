@@ -32,14 +32,18 @@ spec:
               - name: "precision"
                 devices:
                   - name: "/dev/disk/by-id/nvme-SHGP31-1000GM-2_AS0CN42841190CT25"
+                    config:
+                      osdsPerDevice: "3"
               - name: "thinkpad"
                 devices:
                   - name: "/dev/disk/by-id/nvme-CT1000P3PSSD8_2422492DF9B7"
+                    config:
+                      osdsPerDevice: "3"
               - name: "elitebook"
                 devices:
                   - name: "/dev/disk/by-id/nvme-CT1000P3PSSD8_2422492E9226"
-            config:
-              osdsPerDevice: "3"
+                    config:
+                      osdsPerDevice: "3"
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
