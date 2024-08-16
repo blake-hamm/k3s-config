@@ -38,7 +38,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [x] Use external secret for password
   - [x] More fine grain needs for helm dashboards (remove windows and mac)
   - [ ] Setup
-    - [ ] ceph
+    - [x] ceph
     - [ ] traefik
     - [ ] metallb
     - [ ] zfs/nfs
