@@ -26,27 +26,27 @@ spec:
             existingSecret: monitoring-login
             userKey: admin-user
             passwordKey: admin-password
-          sidecar:
-            dashboards:
-              enabled: true
-              defaultFolderName: "General"
-              label: grafana_dashboard
-              labelValue: "1"
-              folderAnnotation: grafana_folder
-              searchNamespace: ALL
-              provider:
-                foldersFromFilesStructure: true
-          # dashboardproviders.yaml:
-          #   apiVersion: 1
-          #   providers:
-          #     - name: 'extras'
-          #       orgId: 1
-          #       folder: 'Kubernetes'
-          #       type: file
-          #       disableDeletion: true
-          #       editable: true
-          #       options:
-          #         path: /var/lib/grafana/dashboards/extras
+          # sidecar:
+          #   dashboards:
+          #     enabled: true
+          #     defaultFolderName: "General"
+          #     label: grafana_dashboard
+          #     labelValue: "1"
+          #     folderAnnotation: grafana_folder
+          #     searchNamespace: ALL
+          #     provider:
+          #       foldersFromFilesStructure: true
+          dashboardproviders.yaml:
+            apiVersion: 1
+            providers:
+              - name: 'extras'
+                orgId: 1
+                folder: 'Kubernetes'
+                type: file
+                disableDeletion: true
+                editable: true
+                options:
+                  path: /var/lib/grafana/dashboards/extras
           dashboards:
             extras:
               ceph-cluster:
