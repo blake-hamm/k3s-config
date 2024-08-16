@@ -14,7 +14,6 @@ spec:
     - kind: Rule
       match: Host(`kubernetes.bhamm-lab.com`)
       middlewares:
-        - name: lan-ips
         - name: default-headers
       services:
         - name: kubernetes-dashboard-kong-proxy
