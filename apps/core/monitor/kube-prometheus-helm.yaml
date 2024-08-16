@@ -41,7 +41,7 @@ spec:
             providers:
               - name: 'extras'
                 orgId: 1
-                folder: 'extras'
+                folder: 'Kubernetes'
                 type: file
                 disableDeletion: true
                 editable: true
