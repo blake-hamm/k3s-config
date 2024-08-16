@@ -36,17 +36,17 @@ spec:
               searchNamespace: ALL
               provider:
                 foldersFromFilesStructure: true
-          dashboardproviders.yaml:
-            apiVersion: 1
-            providers:
-              - name: 'extras'
-                orgId: 1
-                folder: 'Kubernetes'
-                type: file
-                disableDeletion: true
-                editable: true
-                options:
-                  path: /var/lib/grafana/dashboards/extras
+          # dashboardproviders.yaml:
+          #   apiVersion: 1
+          #   providers:
+          #     - name: 'extras'
+          #       orgId: 1
+          #       folder: 'Kubernetes'
+          #       type: file
+          #       disableDeletion: true
+          #       editable: true
+          #       options:
+          #         path: /var/lib/grafana/dashboards/extras
           dashboards:
             extras:
               ceph-cluster:
