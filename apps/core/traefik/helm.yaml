@@ -82,7 +82,8 @@ spec:
                   replacement: $1
                   action: replace
               jobLabel: traefik
-              additionalLabels: release=monitor
+              additionalLabels:
+                release: monitor
               interval: 30s
               honorLabels: true
             prometheusRule:
