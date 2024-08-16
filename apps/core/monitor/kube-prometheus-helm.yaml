@@ -70,8 +70,10 @@ spec:
                 token: ''
               ceph-cluster:
                 gnetId: 2842
+                revision: 17
               traefik:
                 gnetId: 17347
+                revision: 9
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
