@@ -39,8 +39,10 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [x] More fine grain needs for helm dashboards (remove windows and mac)
   - [ ] Setup
     - [x] ceph
-    - [ ] traefik
+    - [x] traefik
     - [ ] metallb
+    - [ ] calico
+    - [ ] kube-vip
     - [ ] zfs/nfs
     - [ ] postgres
     - [ ] vault
@@ -49,6 +51,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
     - [ ] aorus node
     - [ ] opnsense
     - [ ] argocd
+  - [ ] Create PV for prometheus data
   - [ ] Loki
 
 ### Let's optimize our cluster and it's storage:
