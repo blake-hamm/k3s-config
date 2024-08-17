@@ -33,6 +33,3 @@ spec:
     stsIncludeSubdomains: true # Apply STS to all subdomains
     stsPreload: true # Include the domain in STS preload list
     stsSeconds: 15552000 # STS max-age in seconds (6 months)
-    # Miscellaneous Security Headers
-    X-Content-Type-Options: nosniff # Prevent MIME-type sniffing
-    X-Frame-Options: SAMEORIGIN # Prevent clickjacking by restricting framing to same origin
