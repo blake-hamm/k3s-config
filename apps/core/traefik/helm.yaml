@@ -16,6 +16,9 @@ spec:
     targetRevision: v29.0.0
     helm:
       valuesObject:
+        config:
+          params:
+            server.insecure: true
         globalArguments:
           - "--global.sendanonymoususage=false"
           - "--global.checknewversion=false"
