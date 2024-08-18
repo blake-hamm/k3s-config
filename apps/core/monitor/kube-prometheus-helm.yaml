@@ -74,6 +74,9 @@ spec:
               traefik:
                 gnetId: 17347
                 revision: 9
+              metallb:
+                gnetId: 20162
+                revision: 5
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
