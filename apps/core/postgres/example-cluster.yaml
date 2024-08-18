@@ -4,6 +4,7 @@ metadata:
   name: acid-minimal-cluster
   annotations:
     argocd.argoproj.io/sync-wave: "100"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   teamId: "acid"
   volume:
