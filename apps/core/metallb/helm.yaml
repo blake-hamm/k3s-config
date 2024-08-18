@@ -19,6 +19,7 @@ spec:
         prometheus:
           serviceMonitor:
             enabled: true
+            serviceAccount: "monitor-kube-prometheus-st-prometheus"
             speaker:
               additionalLabels:
                 release: monitor
