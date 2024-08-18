@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
-    namespace: default
+    namespace: metallb-system
     server: https://kubernetes.default.svc
   project: default
   ignoreDifferences:
@@ -39,6 +39,7 @@ spec:
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - RespectIgnoreDifferences=true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
