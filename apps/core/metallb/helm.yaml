@@ -14,8 +14,19 @@ spec:
     chart: metallb
     repoURL: https://metallb.github.io/metallb
     targetRevision: 0.14.8
-    # helm:
-    #   valuesObject:
+    helm:
+      valuesObject:
+        prometheus:
+          serviceMonitor:
+            enabled: true
+            speaker:
+              additionalLabels:
+                release: monitor
+            controller:
+              additionalLabels:
+                release: monitor
+          prometheusRule:
+            enabled: true
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
