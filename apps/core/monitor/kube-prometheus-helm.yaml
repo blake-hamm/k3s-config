@@ -16,6 +16,19 @@ spec:
     targetRevision: 61.2.0
     helm:
       valuesObject:
+        prometheusOperator:
+          admissionWebhooks:
+            annotations:
+              argocd.argoproj.io/hook: Sync
+              argocd.argoproj.io/sync-wave: "-500"
+            mutatingWebhookConfiguration:
+              annotations:
+                argocd.argoproj.io/hook: Sync
+                argocd.argoproj.io/sync-wave: "-500"
+            validatingWebhookConfiguration:
+              annotations:
+                argocd.argoproj.io/hook: Sync
+                argocd.argoproj.io/sync-wave: "-500"
         prometheus:
           prometheusSpec:
             serviceMonitorSelector:
