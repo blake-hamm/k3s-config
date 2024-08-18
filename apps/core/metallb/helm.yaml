@@ -7,9 +7,15 @@ metadata:
     argocd.argoproj.io/sync-wave: "-200"
 spec:
   destination:
-    namespace: default #metallb-system
+    namespace: default
     server: https://kubernetes.default.svc
   project: default
+  ignoreDifferences:
+    - group: "apiextensions.k8s.io"
+      kind: "CustomResourceDefinition"
+      name: "bgppeers.metallb.io"
+      jsonPointers:
+        - /spec/conversion/webhook/clientConfig/caBundle
   source:
     chart: metallb
     repoURL: https://metallb.github.io/metallb
@@ -32,7 +38,7 @@ spec:
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
-      # - CreateNamespace=true
+      - RespectIgnoreDifferences=true
     automated:
       prune: true
       selfHeal: true
