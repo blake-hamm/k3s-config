@@ -121,5 +121,7 @@ dd if=/dev/zero of="$DISK" bs=1M count=100 oflag=direct,dsync
 ceph-volume lvm zap --destroy $DISK
 blkdiscard $DISK
 wipefs $DISK
-rm -rf /dev/lib/rook
+dd if=/dev/zero of="$DISK" bs=1M count=100 oflag=direct,dsync
+rm -rf /var/lib/rook
+rm -rf /var/log/ceph
 ```
