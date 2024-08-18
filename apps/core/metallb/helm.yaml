@@ -17,9 +17,9 @@ spec:
     helm:
       valuesObject:
         prometheus:
+          serviceAccount: "monitor-kube-prometheus-st-prometheus"
           serviceMonitor:
             enabled: true
-            serviceAccount: "monitor-kube-prometheus-st-prometheus"
             speaker:
               additionalLabels:
                 release: monitor
