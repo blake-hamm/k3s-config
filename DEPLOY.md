@@ -118,7 +118,7 @@ nix-shell -p gptfdisk ceph
 DISK="/dev/nvme0n1"
 sgdisk --zap-all $DISK
 dd if=/dev/zero of="$DISK" bs=1M count=100 oflag=direct,dsync
-ceph-volume lvm zap $DISK
+ceph-volume lvm zap --destroy $DISK
 blkdiscard $DISK
 wipefs $DISK
 rm -rf /dev/lib/rook
