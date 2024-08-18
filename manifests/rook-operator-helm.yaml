@@ -28,4 +28,4 @@ spec:
       - ApplyOutOfSyncOnly=true
     automated:
       prune: true
-      # selfHeal: true
+      selfHeal: true
