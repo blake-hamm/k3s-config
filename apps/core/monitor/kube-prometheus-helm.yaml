@@ -17,18 +17,18 @@ spec:
     helm:
       valuesObject:
         prometheusOperator:
+          jobs:
+            annotations:
+              argocd.argoproj.io/hook: Sync
           admissionWebhooks:
             annotations:
               argocd.argoproj.io/hook: Sync
-              argocd.argoproj.io/sync-wave: "-500"
             mutatingWebhookConfiguration:
               annotations:
                 argocd.argoproj.io/hook: Sync
-                argocd.argoproj.io/sync-wave: "-500"
             validatingWebhookConfiguration:
               annotations:
                 argocd.argoproj.io/hook: Sync
-                argocd.argoproj.io/sync-wave: "-500"
         prometheus:
           prometheusSpec:
             serviceMonitorSelector:
