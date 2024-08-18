@@ -16,19 +16,6 @@ spec:
     targetRevision: 61.2.0
     helm:
       valuesObject:
-        prometheusOperator:
-          jobs:
-            annotations:
-              argocd.argoproj.io/hook: Sync
-          admissionWebhooks:
-            annotations:
-              argocd.argoproj.io/hook: Sync
-            mutatingWebhookConfiguration:
-              annotations:
-                argocd.argoproj.io/hook: Sync
-            validatingWebhookConfiguration:
-              annotations:
-                argocd.argoproj.io/hook: Sync
         prometheus:
           prometheusSpec:
             serviceMonitorSelector:
