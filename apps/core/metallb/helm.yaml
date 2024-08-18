@@ -18,6 +18,7 @@ spec:
       valuesObject:
         prometheus:
           serviceAccount: "monitor-kube-prometheus-st-prometheus"
+          namespace: "default"
           serviceMonitor:
             enabled: true
             speaker:
