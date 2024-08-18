@@ -4,6 +4,8 @@ apiVersion: operator.tigera.io/v1
 kind: Installation
 metadata:
   name: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "-300"
 spec:
   # Configures Calico networking.
   calicoNetwork:
@@ -25,4 +27,6 @@ apiVersion: operator.tigera.io/v1
 kind: APIServer
 metadata:
   name: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "-300"
 spec: {}

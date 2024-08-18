@@ -40,7 +40,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [ ] Setup
     - [x] ceph
     - [x] traefik
-    - [ ] metallb
+    - [x] metallb
     - [ ] calico
     - [ ] kube-vip
     - [ ] zfs/nfs
