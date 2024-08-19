@@ -30,16 +30,16 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-300"
 spec: {}
----
-apiVersion: operator.tigera.io/v1
-kind: Monitor
-metadata:
-  name: tigera-secure
-  annotations:
-    argocd.argoproj.io/sync-wave: "-250"
-spec:
-  externalPrometheus:
-    namespace: default
-    serviceMonitor:
-      labels:
-        release: monitor
+# ---
+# apiVersion: operator.tigera.io/v1
+# kind: Monitor
+# metadata:
+#   name: tigera-secure
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-250"
+# spec:
+#   externalPrometheus:
+#     namespace: default
+#     serviceMonitor:
+#       labels:
+#         release: monitor
