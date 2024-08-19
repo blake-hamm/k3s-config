@@ -25,6 +25,7 @@ spec:
     # WebSocket Handling (Ensure proper forwarding of WebSocket connections)
     customRequestHeaders:
       X-Forwarded-Proto: https # Forward protocol to backend
+    # BELOW NOT WORKING WITH POSTGRES WEBSITE
     #   Upgrade: "websocket" # Enable WebSocket upgrade
     #   Connection: "upgrade" # Set connection header for WebSockets
     # SSL Redirect and Strict Transport Security (STS)
