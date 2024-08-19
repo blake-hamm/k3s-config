@@ -33,18 +33,29 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 
 ### Let's setup monitoring:
 - [ ] Deploy:
-  - [ ] Prometheus
-  - [ ] Grafana
+  - [x] Prometheus
+  - [x] Grafana
+  - [x] Use external secret for password
+  - [x] More fine grain needs for helm dashboards (remove windows and mac)
+  - [ ] Setup
+    - [x] ceph
+    - [x] traefik
+    - [x] metallb
+    - [x] calico
+    - [ ] aorus node - https://wiki.nixos.org/wiki/Prometheus
+    - [ ] zfs/nfs - https://github.com/pdf/zfs_exporter
+    - [ ] postgres - https://github.com/prometheus-community/postgres_exporter
+    - [ ] vault - https://bank-vaults.dev/docs/operator/monitoring/
+    - [ ] external-secrets - https://external-secrets.io/latest/api/metrics/
+    - [ ] cert-manager - https://cert-manager.io/docs/devops-tips/prometheus-metrics/
+    - [ ] opnsense - https://github.com/opnsense/plugins
+    - [ ] argocd - https://argo-cd.readthedocs.io/en/stable/operator-manual/metrics/
+  - [ ] Create PV for prometheus data
   - [ ] Loki
 
 ### Let's optimize our cluster and it's storage:
-- [ ] Create monorepo
-- [ ] Setup 2 other laptop nodes
-- [ ] Re-deploy k3s server and agent nodes from aorus to the new nodes
-- [ ] Setup ceph cluster with rook
-- [ ] Leverage ceph cluster for VM's
-- [ ] Create storageClass for ceph
-- [ ] Setup postgresql db
+- [x] Setup bare metal nodes
+- [x] Setup ceph cluster with rook
 
 ### Once vault is functioning as planned, next steps are:
 - [ ] Setup authelia middleware

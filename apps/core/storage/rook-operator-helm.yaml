@@ -7,23 +7,26 @@ metadata:
     argocd.argoproj.io/sync-wave: "-200"
 spec:
   destination:
-    namespace: default
+    namespace: rook-ceph
     server: https://kubernetes.default.svc
   project: default
   source:
     chart: rook-ceph
     repoURL: https://charts.rook.io/release
     targetRevision: v1.14.9
-    # helm:
-    #   valuesObject:
-    #     storageClass:
-    #       defaultClass: true
-    #     nfs:
-    #       server: 192.168.69.12
-    #       path: /zpool_ssd/kubernetes
+    helm:
+      valuesObject:
+        monitoring:
+          enabled: true
+        csi:
+          serviceMonitor:
+            enabled: false
+            labels:
+              release: monitor
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
