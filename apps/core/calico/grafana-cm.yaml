@@ -8,7 +8,7 @@ metadata:
   name: grafana-felix
   namespace: default
 data:
-  grafana-felix: |-
+  grafana-felix.json: |-
     {
       "__inputs": [
         {
