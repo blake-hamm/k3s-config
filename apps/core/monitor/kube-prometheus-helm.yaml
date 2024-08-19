@@ -77,6 +77,9 @@ spec:
               metallb:
                 gnetId: 20162
                 revision: 5
+              calico:
+                gnetId: 12175
+                revision: 5
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
