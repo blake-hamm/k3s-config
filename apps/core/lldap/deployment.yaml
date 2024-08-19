@@ -33,6 +33,21 @@ spec:
               value: "1001"
             - name: LLDAP_LDAP_BASE_DN
               value: "dc=bhamm-lab,dc=com"
+            - name: LLDAP_ADMIN_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: lldap
+                  key: admin-user
+            - name: LLDAP_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: lldap
+                  key: admin-password
+            - name: LLDAP_JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: lldap
+                  key: jwt
             - name: POSTGRES_USERNAME
               valueFrom:
                 secretKeyRef:
