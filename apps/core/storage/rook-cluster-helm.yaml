@@ -40,9 +40,9 @@ spec:
               - name: "elitebook"
                 devices:
                   - name: "/dev/disk/by-id/nvme-CT1000P3PSSD8_2422492E9226"
-            config:
-              osdsPerDevice: "5"
-              storeType: bluestore
+                    # config:
+                    #   osdsPerDevice: "5"
+                    #   storeType: bluestore
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
