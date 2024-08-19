@@ -58,8 +58,10 @@ spec:
                 secretKeyRef:
                   name: postgres.postgres-lldap.credentials.postgresql.acid.zalan.do
                   key: password
-            - name: LLDAP_DATABASE_URL
-              value: "postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres-lldap/lldap"
+          command: ["/bin/sh", "-c"]
+          args:
+            - ? export LLDAP_DATABASE_URL="postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres-lldap/lldap" && echo "Using DATABASE URL
+              : $LLDAP_DATABASE_URL" && exec /docker-entrypoint.sh run --config-file /data/lldap_config.toml
           livenessProbe:
             exec:
               command: ["/app/lldap", "healthcheck", "--config-file", "/data/lldap_config.toml"]
