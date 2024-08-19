@@ -60,8 +60,7 @@ spec:
                   key: password
           command: ["/bin/sh", "-c"]
           args:
-            - ? export LLDAP_DATABASE_URL="postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres-lldap/lldap" && echo "Using DATABASE URL
-              : $LLDAP_DATABASE_URL" && exec /docker-entrypoint.sh run --config-file /data/lldap_config.toml
+            - export LLDAP_DATABASE_URL="postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres-lldap/lldap" && exec /docker-entrypoint.sh run --config-file /data/lldap_config.toml
           livenessProbe:
             exec:
               command: ["/app/lldap", "healthcheck", "--config-file", "/data/lldap_config.toml"]
