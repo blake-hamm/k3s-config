@@ -34,7 +34,7 @@ spec: {}
 apiVersion: operator.tigera.io/v1
 kind: Monitor
 metadata:
-  name: default
+  name: tigera-secure
   annotations:
     argocd.argoproj.io/sync-wave: "-250"
 spec:
