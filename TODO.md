@@ -44,12 +44,12 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
     - [x] calico
     - [ ] aorus node - https://wiki.nixos.org/wiki/Prometheus
     - [ ] zfs/nfs - https://github.com/pdf/zfs_exporter
-    - [ ] postgres
-    - [ ] vault
-    - [ ] external-secrets
-    - [ ] cert-manager
-    - [ ] opnsense
-    - [ ] argocd
+    - [ ] postgres - https://github.com/prometheus-community/postgres_exporter
+    - [ ] vault - https://bank-vaults.dev/docs/operator/monitoring/
+    - [ ] external-secrets - https://external-secrets.io/latest/api/metrics/
+    - [ ] cert-manager - https://cert-manager.io/docs/devops-tips/prometheus-metrics/
+    - [ ] opnsense - https://github.com/opnsense/plugins
+    - [ ] argocd - https://argo-cd.readthedocs.io/en/stable/operator-manual/metrics/
   - [ ] Create PV for prometheus data
   - [ ] Loki
 
