@@ -41,14 +41,13 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
     - [x] ceph
     - [x] traefik
     - [x] metallb
-    - [ ] calico
-    - [ ] kube-vip
-    - [ ] zfs/nfs
+    - [x] calico
+    - [ ] aorus node - https://wiki.nixos.org/wiki/Prometheus
+    - [ ] zfs/nfs - https://github.com/pdf/zfs_exporter
     - [ ] postgres
     - [ ] vault
     - [ ] external-secrets
     - [ ] cert-manager
-    - [ ] aorus node
     - [ ] opnsense
     - [ ] argocd
   - [ ] Create PV for prometheus data
