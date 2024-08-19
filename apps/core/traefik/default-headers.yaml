@@ -8,8 +8,8 @@ metadata:
 spec:
   headers:
     # Security Headers
-    browserXssFilter: true # Prevents some types of XSS attacks by enabling the XSS filter in browsers
-    contentTypeNosniff: true # Prevents browsers from interpreting files as a different MIME type
+    # browserXssFilter: true # Prevents some types of XSS attacks by enabling the XSS filter in browsers
+    # contentTypeNosniff: true # Prevents browsers from interpreting files as a different MIME type
     forceSTSHeader: true # Ensures that STS is always sent
     stsIncludeSubdomains: true # Apply STS to all subdomains
     stsPreload: true # Allows the domain to be preloaded with STS by browsers
