@@ -33,12 +33,12 @@ spec:
               value: "1001"
             - name: LLDAP_LDAP_BASE_DN
               value: "dc=bhamm-lab,dc=com"
-            - name: LLDAP_ADMIN_USERNAME
+            - name: LLDAP_LDAP_USER_DN
               valueFrom:
                 secretKeyRef:
                   name: lldap
                   key: admin-user
-            - name: LLDAP_ADMIN_PASSWORD
+            - name: LLDAP_LDAP_USER_PASS
               valueFrom:
                 secretKeyRef:
                   name: lldap
