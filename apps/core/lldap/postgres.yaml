@@ -1,0 +1,24 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: lldap
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  teamId: "acid"
+  volume:
+    size: 1Gi
+  numberOfInstances: 2
+  users:
+    # database owner
+    bhamm:
+      - superuser
+      - createdb
+    # role for application foo
+    lldap:
+  #databases: name->owner
+  databases:
+    lldap: lldap
+  postgresql:
+    version: "15"
