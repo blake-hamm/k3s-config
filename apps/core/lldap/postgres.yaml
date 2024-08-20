@@ -17,6 +17,7 @@ spec:
       - createdb
     # role for application foo
     lldap:
+      - superuser
   #databases: name->owner
   databases:
     lldap: lldap
