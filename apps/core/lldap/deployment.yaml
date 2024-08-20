@@ -33,11 +33,11 @@ spec:
               value: "1001"
             - name: LLDAP_LDAP_BASE_DN
               value: "dc=bhamm-lab,dc=com"
-            # - name: LLDAP_LDAP_USER_DN
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: lldap
-            #       key: admin-user
+            - name: LLDAP_LDAP_USER_DN
+              valueFrom:
+                secretKeyRef:
+                  name: lldap
+                  key: admin-user
             - name: LLDAP_LDAP_USER_PASS
               valueFrom:
                 secretKeyRef:
@@ -58,8 +58,8 @@ spec:
                 secretKeyRef:
                   name: postgres.postgres-lldap.credentials.postgresql.acid.zalan.do
                   key: password
-            - name: LLDAP_DATABASE_URL
-              value: postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@postgres-lldap/lldap
+                  # - name: LLDAP_DATABASE_URL
+                  #   value: postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@postgres-lldap/lldap
           livenessProbe:
             exec:
               command: ["/app/lldap", "healthcheck", "--config-file", "/data/lldap_config.toml"]
