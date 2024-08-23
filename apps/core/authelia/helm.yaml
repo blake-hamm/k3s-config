@@ -25,11 +25,11 @@ spec:
                 secretKeyRef:
                   name: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
                   key: password
-                  # - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
-                  #   valueFrom:
-                  #     secretKeyRef:
-                  #       name: authelia-external
-                  #       key: lldap_password
+            - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: authelia-external
+                  key: lldap_password
         configMap:
           log:
             level: 'debug'
@@ -56,8 +56,16 @@ spec:
           storage:
             postgres:
               enabled: true
-              deploy: true
-              address: 'tcp://authelia-postgresql:5432'
+              deploy: false
+              address: 'tcp://postgres-authelia:5432'
+              timeout: '5 seconds'
+              database: 'authelia'
+              schema: 'public'
+              username: 'authelia'
+              password:
+                disabled: true
+              tls:
+                skip_verify: true
           notifier:
             filesystem:
               enabled: true
