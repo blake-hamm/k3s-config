@@ -62,6 +62,9 @@ spec:
               username: 'authelia'
               password:
                 disabled: true
+          notifier:
+            filesystem:
+              enabled: true
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
