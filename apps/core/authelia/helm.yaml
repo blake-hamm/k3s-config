@@ -62,6 +62,8 @@ spec:
               database: 'authelia'
               schema: 'public'
               username: 'authelia'
+              password:
+                disabled: true
               tls:
                 skip_verify: true
           notifier:
