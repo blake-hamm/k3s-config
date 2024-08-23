@@ -16,6 +16,18 @@ spec:
     targetRevision: 0.9.5
     helm:
       valuesObject:
+        pod:
+          env:
+            - name: AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
+                  key: password
+            - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
+                  key: password
         configMap:
           disabled: false
           telemetry:
