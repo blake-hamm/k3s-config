@@ -19,3 +19,5 @@ spec:
     authelia: authelia
   postgresql:
     version: "15"
+  pg_hba:
+    - host all all all md5
