@@ -17,6 +17,8 @@ spec:
     helm:
       valuesObject:
         pod:
+          extraVolumeMounts:
+          extraVolumes:
           env:
             - name: AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD
               valueFrom:
@@ -26,7 +28,7 @@ spec:
             - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: authelia
+                  name: authelia-external
                   key: lldap_password
         configMap:
           log:
