@@ -20,4 +20,4 @@ spec:
   postgresql:
     version: "15"
   pg_hba:
-    - host all all all md5
+    - "host all all all md5"
