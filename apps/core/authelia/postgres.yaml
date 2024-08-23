@@ -1,7 +1,7 @@
 apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
-  name: postgres-lldap
+  name: postgres-authelia
   annotations:
     argocd.argoproj.io/sync-wave: "100"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
@@ -12,10 +12,10 @@ spec:
   numberOfInstances: 2
   users:
     # role for application foo
-    lldap:
+    authelia:
       - superuser
   #databases: name->owner
   databases:
-    lldap: lldap
+    authelia: authelia
   postgresql:
     version: "15"
