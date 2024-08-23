@@ -19,6 +19,6 @@ spec:
     authelia: authelia
   postgresql:
     version: "15"
-  patroni:
-    pg_hba:
-      - "host    authelia    authelia    10.42.0.0/16    md5"
+  # patroni:
+  #   pg_hba:
+  #     - "host    authelia    authelia    10.42.0.0/16    md5"
