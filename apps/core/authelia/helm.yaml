@@ -26,8 +26,8 @@ spec:
             - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
-                  key: password
+                  name: authelia
+                  key: lldap_password
         configMap:
           disabled: false
           telemetry:
