@@ -62,8 +62,6 @@ spec:
               username: 'authelia'
               password:
                 disabled: true
-        secret:
-          existingSecret: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
