@@ -22,3 +22,6 @@ spec:
   patroni:
     pg_hba:
       - "host all all all md5"
+      - "hostssl all all all md5"
+      - "local all all all md5"
+      - "localssl all all all md5"
