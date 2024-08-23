@@ -43,13 +43,8 @@ spec:
               timeout: '5 seconds'
               database: 'authelia'
               schema: 'public'
-              username: 'authelia'
-              password:
-                disabled: true
         secret:
-          storage:
-            key: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
-            value: password
+          existingSecret: postgres.postgres-authelia.credentials.postgresql.acid.zalan.do
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
