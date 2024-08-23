@@ -65,6 +65,10 @@ spec:
           notifier:
             filesystem:
               enabled: true
+          session:
+            redis:
+              enabled: true
+              deploy: true
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
