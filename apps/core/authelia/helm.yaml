@@ -20,12 +20,12 @@ spec:
           extraVolumeMounts:
           extraVolumes:
           env:
-            - name: AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD
+            - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: authelia.postgres-authelia.credentials.postgresql.acid.zalan.do
                   key: password
-            - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
+            - name: AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: authelia-external
