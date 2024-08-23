@@ -68,6 +68,9 @@ spec:
             filesystem:
               enabled: true
           session:
+            cookies:
+              - subdomain: 'auth'
+                domain: 'bhamm-lab.com'
             redis:
               enabled: true
               deploy: true
