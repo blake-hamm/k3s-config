@@ -64,6 +64,8 @@ spec:
               username: 'authelia'
               password:
                 disabled: true
+              tls:
+                skip_verify: true
           notifier:
             filesystem:
               enabled: true
