@@ -57,6 +57,7 @@ spec:
             postgres:
               enabled: true
               deploy: true
+              address: 'tcp://authelia-postgres:5432'
           notifier:
             filesystem:
               enabled: true
