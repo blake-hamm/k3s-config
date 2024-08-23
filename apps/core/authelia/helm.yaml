@@ -74,6 +74,7 @@ spec:
             redis:
               enabled: true
               deploy: true
+              host: 'authelia-redis-master'
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
