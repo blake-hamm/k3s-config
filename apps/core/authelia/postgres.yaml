@@ -9,7 +9,7 @@ spec:
   teamId: "acid"
   volume:
     size: 1Gi
-  numberOfInstances: 2
+  numberOfInstances: 1
   users:
     # role for application foo
     authelia:
