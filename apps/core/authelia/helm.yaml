@@ -53,7 +53,7 @@ spec:
               implementation: 'lldap'
               address: 'ldap://lldap:3890'
               base_dn: 'DC=bhamm-lab,DC=com'
-              additional_users_dn: 'OU=user'
+              additional_users_dn: 'OU=users'
               additional_groups_dn: 'OU=groups'
               user: 'uid=authelia,ou=people,DC=bhamm-lab,DC=com'
               password:
