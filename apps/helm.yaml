@@ -30,6 +30,11 @@ spec:
                 secretKeyRef:
                   name: authelia-external
                   key: lldap_password
+            - name: AUTHELIA_STORAGE_ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: authelia-external
+                  key: storage_encryption_key
         configMap:
           log:
             level: 'debug'
@@ -54,6 +59,8 @@ spec:
               password:
                 disabled: true
           storage:
+            encryption_key:
+              disabled: true
             postgres:
               enabled: true
               deploy: false
