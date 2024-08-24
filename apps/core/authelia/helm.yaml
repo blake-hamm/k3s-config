@@ -47,14 +47,23 @@ spec:
                 labels:
                   release: monitor
           theme: 'dark'
+          password_reset:
+            disable: true
           authentication_backend:
             ldap:
               enabled: true
-              implementation: 'lldap'
+              implementation: 'custom'
               address: 'ldap://lldap:3890'
               base_dn: 'DC=bhamm-lab,DC=com'
-              additional_users_dn: 'OU=users'
-              additional_groups_dn: 'OU=groups'
+              additional_users_dn: ou=people
+              users_filter: "(&({username_attribute}={input})(objectClass=person))"
+              additional_groups_dn: ou=groups
+              groups_filter: "(member={dn})"
+              attributes:
+                display_name: displayName
+                username: uid
+                group_name: cn
+                mail: mail
               user: 'uid=authelia,ou=people,DC=bhamm-lab,DC=com'
               password:
                 disabled: true
