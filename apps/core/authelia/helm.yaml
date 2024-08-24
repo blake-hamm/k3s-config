@@ -46,6 +46,7 @@ spec:
                 enabled: true
                 labels:
                   release: monitor
+          default_2fa_method: totp
           theme: 'dark'
           password_reset:
             disable: true
@@ -90,6 +91,8 @@ spec:
             rules:
               - domain: '*.bhamm-lab.com'
                 policy: one_factor
+              - domain: 'nginx.bhamm-lab.com'
+                policy: two_factor
           session:
             cookies:
               - subdomain: 'auth'
