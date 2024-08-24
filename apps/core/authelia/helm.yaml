@@ -76,6 +76,11 @@ spec:
           notifier:
             filesystem:
               enabled: true
+          access_control:
+            default_policy: deny
+            rules:
+              - domain: '*.bhamm-lab.com'
+                policy: one_factor
           session:
             cookies:
               - subdomain: 'auth'
