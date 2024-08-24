@@ -50,7 +50,7 @@ spec:
               base_dn: 'DC=bhamm-lab,DC=com'
               # additional_users_dn: 'OU=Users'
               # additional_groups_dn: 'OU=Groups'
-              user: 'CN=authelia,DC=bhamm-lab,DC=com'
+              # user: 'CN=authelia,DC=bhamm-lab,DC=com'
               password:
                 disabled: true
           storage:
