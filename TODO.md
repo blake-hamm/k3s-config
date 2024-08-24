@@ -61,13 +61,13 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Setup authelia middleware
   - [x] Deploy lldap
   - [ ] OPTIONAL: gitops for ldap - https://github.com/lldap/lldap/blob/main/example_configs/bootstrap/bootstrap.md#environment-variables
-  - [ ] Deploy authelia helm
-  - [ ] Integrate with traefik
+  - [x] Deploy authelia helm
+  - [x] Integrate with traefik
   - [ ] Integrate with argocd
 - [ ] Setup valero for kubernetes backups
 - [ ] Expose UI's behind authelia:
   - [ ] Kubernetes
-  - [ ] Traefik
+  - [x] Traefik
   - [ ] Vault
   - [ ] Argo
 - [ ] Setup local internet/bare metal ip mapping
