@@ -35,6 +35,11 @@ spec:
                 secretKeyRef:
                   name: authelia-external
                   key: storage_encryption_key
+            - name: AUTHELIA_VAULT_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: authelia-external
+                  key: vault_client_secret
         configMap:
           log:
             level: 'debug'
@@ -103,6 +108,26 @@ spec:
               enabled: true
               deploy: true
               host: 'authelia-redis-master'
+          identity_providers:
+            oidc:
+              authorization_policies:
+                policy_name:
+                  default_policy: 'two_factor'
+              clients:
+                - client_id: 'vault'
+                  client_name: 'HashiCorp Vault'
+                  client_secret: '{{ env "AUTHELIA_VAULT_CLIENT_SECRET" }}' # The digest of 'insecure_secret'.
+                  public: false
+                  authorization_policy: 'two_factor'
+                  redirect_uris:
+                    - 'https://vault.bhamm-lab.com/oidc/callback'
+                    - 'https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback'
+                  scopes:
+                    - 'openid'
+                    - 'profile'
+                    - 'groups'
+                    - 'email'
+                  userinfo_signed_response_alg: 'none'
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
