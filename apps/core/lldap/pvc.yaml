@@ -4,6 +4,8 @@ metadata:
   labels:
     app: lldap
   name: lldap-data
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
 spec:
   accessModes:
     - ReadWriteOnce
