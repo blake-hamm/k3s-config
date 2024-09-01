@@ -65,10 +65,10 @@ spec:
               command: ["/app/lldap", "healthcheck", "--config-file", "/data/lldap_config.toml"]
             initialDelaySeconds: 30
             periodSeconds: 10
-          volumeMounts:
-            - mountPath: /data
-              name: lldap-data
+            # volumeMounts:
+            #   - mountPath: /data
+            #     name: lldap-data
       restartPolicy: Always
-      volumes:
-        - name: lldap-data
-          emptyDir: {}
+      # volumes:
+      #   - name: lldap-data
+      #     emptyDir: {}
