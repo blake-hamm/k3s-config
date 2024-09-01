@@ -110,6 +110,7 @@ spec:
               host: 'authelia-redis-master'
           identity_providers:
             oidc:
+              enabled: true
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
