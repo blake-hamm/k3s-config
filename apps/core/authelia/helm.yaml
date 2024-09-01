@@ -114,6 +114,9 @@ spec:
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
+                  rules:
+                    - policy: 'deny'
+                      subject: 'group:services'
               clients:
                 - client_id: 'vault'
                   client_name: 'HashiCorp Vault'
