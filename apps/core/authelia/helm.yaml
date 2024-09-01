@@ -117,7 +117,7 @@ spec:
               clients:
                 - client_id: 'vault'
                   client_name: 'HashiCorp Vault'
-                  client_secret: '{{ env "AUTHELIA_VAULT_CLIENT_SECRET" }}' # The digest of 'insecure_secret'.
+                  client_secret: '$pbkdf2-sha512$310000$jU2648xjIbQp6u9EKayzHQ$J9wuOiPMpEF9oxNX08bBxWdGLS8YUAfx.ZD26bmtpqOL.mv1yiLVQ/Jw.jBhPFNBwuMZTnkepgdc/d2Q55XolA' # '{{ env "AUTHELIA_VAULT_CLIENT_SECRET" }}'
                   public: false
                   authorization_policy: 'two_factor'
                   redirect_uris:
