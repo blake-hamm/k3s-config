@@ -18,7 +18,27 @@ spec:
       valuesObject:
         pod:
           extraVolumeMounts:
+            - mountPath: '/app/secrets'
+              name: 'secrets'
+              readOnly: true
           extraVolumes:
+            - name: 'secrets'
+              projected:
+                sources:
+                  - secret:
+                      name: authelia-external
+                      items:
+                        - key: lldap_password
+                          path: lldap_password
+                        - key: storage_encryption_key
+                          path: storage_encryption_key
+                        - key: vault_client_secret
+                          path: vault_client_secret
+                  - secret:
+                      name: authelia.postgres-authelia.credentials.postgresql.acid.zalan.do
+                      items:
+                        - key: password
+                          path: postgres_password
           env:
             - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
               valueFrom:
