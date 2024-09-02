@@ -124,29 +124,27 @@ spec:
           identity_providers:
             oidc:
               enabled: true
-              # jwks:
-              #   - key: '{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}'
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
                   rules:
                     - policy: 'deny'
                       subject: 'group:services'
-                      # clients:
-                      #   - client_id: 'vault'
-                      #     client_name: 'HashiCorp Vault'
-                      #     client_secret: '{{ secret "/app/external-secrets/vault_client_secret" | mindent 10 "|" | msquote }}'
-                      #     public: false
-                      #     authorization_policy: 'two_factor'
-                      #     redirect_uris:
-                      #       - 'https://vault.bhamm-lab.com/oidc/callback'
-                      #       - 'https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback'
-                      #     scopes:
-                      #       - 'openid'
-                      #       - 'profile'
-                      #       - 'groups'
-                      #       - 'email'
-                      #     userinfo_signed_response_alg: 'none'
+                      clients:
+                        - client_id: 'vault'
+                          client_name: 'HashiCorp Vault'
+                          client_secret: '{{ secret "/app/external-secrets/vault_client_secret" | mindent 10 "|" | msquote }}'
+                          public: false
+                          authorization_policy: 'two_factor'
+                          redirect_uris:
+                            - 'https://vault.bhamm-lab.com/oidc/callback'
+                            - 'https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback'
+                          scopes:
+                            - 'openid'
+                            - 'profile'
+                            - 'groups'
+                            - 'email'
+                          userinfo_signed_response_alg: 'none'
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
