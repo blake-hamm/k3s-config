@@ -123,8 +123,7 @@ spec:
             oidc:
               enabled: true
               jwks:
-                - key: >-
-                    {{ printf "{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}" }}
+                - key: '{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}'
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
