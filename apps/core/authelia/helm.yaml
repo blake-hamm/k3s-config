@@ -35,7 +35,7 @@ spec:
                         - key: vault_client_secret
                           path: vault_client_secret
                         - key: jwks_key
-                          path: jwks_key.2048.key
+                          path: jwks_key
                   - secret:
                       name: authelia.postgres-authelia.credentials.postgresql.acid.zalan.do
                       items:
@@ -123,7 +123,8 @@ spec:
             oidc:
               enabled: true
               jwks:
-                - key: '{{ secret "/app/external-secrets/jwks_key.2048.key" | mindent 10 "|" | msquote }}'
+                - key: >-
+                    {{ printf "{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}" }}
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
