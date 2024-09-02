@@ -34,6 +34,8 @@ spec:
                           path: storage_encryption_key
                         - key: vault_client_secret
                           path: vault_client_secret
+                        - key: jwks_key
+                          path: jwks_key
                   - secret:
                       name: authelia.postgres-authelia.credentials.postgresql.acid.zalan.do
                       items:
@@ -46,8 +48,6 @@ spec:
               value: /app/external-secrets/lldap_password
             - name: AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE
               value: /app/external-secrets/storage_encryption_key
-            - name: AUTHELIA_VAULT_CLIENT_SECRET_FILE
-              value: /app/external-secrets/vault_client_secret
         configMap:
           log:
             level: 'debug'
@@ -119,15 +119,8 @@ spec:
           identity_providers:
             oidc:
               enabled: false
-              # jwks:
-              #   - key_id: ''
-              #     algorithm: 'RS256'
-              #     use: 'sig'
-              #     key:
-              #       value: |
-              #       path: '/secrets/oidc.jwk.RS256.pem'
-              #     certificate_chain:
-              #       path: '/secrets.oidc.jwk.RS256.crt'
+              jwks:
+                - key: '{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}'
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
@@ -137,7 +130,7 @@ spec:
               clients:
                 - client_id: 'vault'
                   client_name: 'HashiCorp Vault'
-                  client_secret: '$pbkdf2-sha512$310000$jU2648xjIbQp6u9EKayzHQ$J9wuOiPMpEF9oxNX08bBxWdGLS8YUAfx.ZD26bmtpqOL.mv1yiLVQ/Jw.jBhPFNBwuMZTnkepgdc/d2Q55XolA' # '{{ env "AUTHELIA_VAULT_CLIENT_SECRET" }}'
+                  client_secret: '{{ secret "/app/external-secrets/vault_client_secret" | mindent 10 "|" | msquote }}'
                   public: false
                   authorization_policy: 'two_factor'
                   redirect_uris:
