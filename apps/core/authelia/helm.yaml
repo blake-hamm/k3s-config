@@ -40,26 +40,14 @@ spec:
                         - key: password
                           path: postgres_password
           env:
-            - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: authelia.postgres-authelia.credentials.postgresql.acid.zalan.do
-                  key: password
-            - name: AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: authelia-external
-                  key: lldap_password
-            - name: AUTHELIA_STORAGE_ENCRYPTION_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: authelia-external
-                  key: storage_encryption_key
-            - name: AUTHELIA_VAULT_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: authelia-external
-                  key: vault_client_secret
+            - name: AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE
+              value: /app/external-secrets/postgres_password
+            - name: AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE
+              value: /app/external-secrets/lldap_password
+            - name: AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE
+              value: /app/external-secrets/storage_encryption_key
+            - name: AUTHELIA_VAULT_CLIENT_SECRET_FILE
+              value: /app/external-secrets/vault_client_secret
         configMap:
           log:
             level: 'debug'
