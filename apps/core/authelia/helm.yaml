@@ -121,7 +121,7 @@ spec:
               host: 'authelia-redis-master'
           identity_providers:
             oidc:
-              enabled: true
+              enabled: false
               jwks:
                 - key: >-
                     {{ printf "{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}" }}
