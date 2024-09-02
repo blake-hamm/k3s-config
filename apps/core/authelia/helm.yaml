@@ -110,7 +110,16 @@ spec:
               host: 'authelia-redis-master'
           identity_providers:
             oidc:
-              enabled: true
+              enabled: false
+              # jwks:
+              #   - key_id: ''
+              #     algorithm: 'RS256'
+              #     use: 'sig'
+              #     key:
+              #       value: |
+              #       path: '/secrets/oidc.jwk.RS256.pem'
+              #     certificate_chain:
+              #       path: '/secrets.oidc.jwk.RS256.crt'
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
