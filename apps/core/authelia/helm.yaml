@@ -18,11 +18,11 @@ spec:
       valuesObject:
         pod:
           extraVolumeMounts:
-            - mountPath: '/app/secrets'
-              name: 'secrets'
+            - mountPath: '/app/external-secrets'
+              name: 'external-secrets'
               readOnly: true
           extraVolumes:
-            - name: 'secrets'
+            - name: 'external-secrets'
               projected:
                 sources:
                   - secret:
