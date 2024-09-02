@@ -120,7 +120,7 @@ spec:
             oidc:
               enabled: true
               jwks:
-                - key: '{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}'
+                - key: '{{ secret "/app/external-secrets/jwks_key" }}'
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
