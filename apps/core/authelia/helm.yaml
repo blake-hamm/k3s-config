@@ -48,6 +48,8 @@ spec:
               value: /app/external-secrets/lldap_password
             - name: AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE
               value: /app/external-secrets/storage_encryption_key
+            - name: AUTHELIA_IDENTITY_PROVIDERS_OIDC_ISSUER_PRIVATE_KEY_FILE
+              value: /app/external-secrets/jwks_key
         # secret:
         #   oidcPrivateKey:
         #     filename: /app/external-secrets/jwks_key
@@ -122,8 +124,8 @@ spec:
           identity_providers:
             oidc:
               enabled: true
-              jwks:
-                - key: '{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}'
+              # jwks:
+              #   - key: '{{ secret "/app/external-secrets/jwks_key" | mindent 10 "|" | msquote }}'
               authorization_policies:
                 policy_name:
                   default_policy: 'two_factor'
