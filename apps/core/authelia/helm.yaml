@@ -133,7 +133,7 @@ spec:
               clients:
                 - client_id: 'vault'
                   client_name: 'HashiCorp Vault'
-                  client_secret: '$pbkdf2-sha512$310000$ltZi9wbxJ8LmFVcdYDfoPg$GpeP9xMC1tPRnT4JAEAbjMexIi6DmNnRa7P8JCPzqJtNVf.BE8Eg3zWsSSbKp1/8P8do8OlEuZEcqPQLI8YX0Q'
+                  client_secret: '$pbkdf2-sha512$310000$SyoKiZYe/DPG5sHOD0i23A$.DfzzaiObzHPHLhyfA61NcunBkYuDzLLNXIzwSzQoHTA/61Z1E3V3tJnWJTHfaEiW/ABBlW1CZnRyvgzWgzStg'
                   public: false
                   authorization_policy: 'two_factor'
                   redirect_uris:
