@@ -31,15 +31,13 @@ spec:
         repoServer:
           replicas: 2
         rbac:
+          create: true
           policy.csv: |
-            # Define role permissions
             p, role:admin, applications, *, */*, allow
             p, role:admin, clusters, *, *, allow
             p, role:admin, repositories, *, *, allow
             p, role:admin, logs, *, *, allow
             p, role:admin, exec, *, */*, allow
-
-            # Define group-to-role mapping
             g, oidc:lldap_admin, role:admin
           scopes: "[groups]"
         configs:
