@@ -110,15 +110,20 @@ spec:
             bound_service_account_namespaces: ["*"]
             policies: allow_secrets
             ttl: 1h
-      - type: approle
+      - type: oidc
+        config:
+          oidc_discovery_url: http://authelia:80
+          oidc_client_id: vault
+          default_role: default
+          allowed_redirect_uris: ["https://vault.bhamm-lab.com/oidc/callback", "https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback"]
         roles:
-          - name: nixos
-            policies: read_secrets
-            secret_id_ttl: 1h
-            # token_num_uses: 10
-            token_ttl: 1h
-            token_max_ttl: 1h
-            # secret_id_num_uses: 40
+          - name: default
+            role_type: oidc
+            allowed_redirect_uris: ["https://vault.bhamm-lab.com/oidc/callback", "https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback"]
+            bound_audiences: vault
+            user_claim: sub
+            policies: allow_secrets
+            ttl: 1h
     secrets:
       - path: secret
         type: kv
