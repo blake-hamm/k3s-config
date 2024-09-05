@@ -17,6 +17,7 @@ spec:
     helm:
       valuesObject:
         global:
+          domain: argocd.bhamm-lab.com
           logging:
             level: debug
         redis-ha:
@@ -39,7 +40,6 @@ spec:
               clientID: argocd
               clientSecret: $argocd-external:oidc_client_secret
               cliClientID: 'argocd-cli'
-              redirectURI: https://argocd.bhamm-lab.com/auth/callback
               requestedScopes:
                 - 'openid'
                 - 'profile'
