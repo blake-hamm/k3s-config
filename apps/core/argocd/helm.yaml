@@ -39,6 +39,7 @@ spec:
               clientID: argocd
               clientSecret: $argocd-external:oidc_client_secret
               cliClientID: 'argocd-cli'
+              redirectURI: https://argocd.bhamm-lab.com/auth/callback
               requestedScopes:
                 - 'openid'
                 - 'profile'
