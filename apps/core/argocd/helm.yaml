@@ -20,12 +20,6 @@ spec:
           domain: argocd.bhamm-lab.com
           logging:
             level: debug
-          env:
-            - name: OIDC_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: argocd-external
-                  key: oidc_client_secret
         redis-ha:
           enabled: true
         controller:
@@ -44,7 +38,7 @@ spec:
               name: Authelia
               issuer: https://auth.bhamm-lab.com
               clientID: argocd
-              clientSecret: "${OIDC_CLIENT_SECRET}"
+              clientSecret: $argocd-external:oidc_client_secret
               cliClientID: 'argocd-cli'
               requestedScopes:
                 - 'openid'
