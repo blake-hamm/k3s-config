@@ -112,7 +112,7 @@ spec:
             ttl: 1h
       - type: oidc
         config:
-          oidc_discovery_url: http://authelia:80
+          oidc_discovery_url: https://auth.bhamm-lab.com
           oidc_client_id: vault
           default_role: default
           allowed_redirect_uris: ["https://vault.bhamm-lab.com/oidc/callback", "https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback"]
