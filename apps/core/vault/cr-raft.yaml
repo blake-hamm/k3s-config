@@ -107,6 +107,8 @@ spec:
         rules: path "secret/*" { capabilities = ["create", "read", "update", "delete", "list"] }
       - name: read_secrets
         rules: path "secret/*" { capabilities = ["read", "list"] }
+      - name: admin
+        rules: path "*" { capabilities = ["create", "read", "update", "delete", "list", "sudo"] }
     auth:
       - type: kubernetes
         roles:
@@ -129,7 +131,7 @@ spec:
             allowed_redirect_uris: ["https://vault.bhamm-lab.com/oidc/callback", "https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback"]
             bound_audiences: vault
             user_claim: sub
-            policies: allow_secrets
+            policies: admin
             ttl: 1h
     secrets:
       - path: secret

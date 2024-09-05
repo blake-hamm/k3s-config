@@ -68,7 +68,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [ ] Expose UI's behind authelia:
   - [ ] Kubernetes
   - [x] Traefik
-  - [ ] Vault
+  - [x] Vault
   - [ ] Argo
 - [ ] Setup local internet/bare metal ip mapping
 - [ ] Setup backups with https://velero.io/
