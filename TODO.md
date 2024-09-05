@@ -63,13 +63,14 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [ ] OPTIONAL: gitops for ldap - https://github.com/lldap/lldap/blob/main/example_configs/bootstrap/bootstrap.md#environment-variables
   - [x] Deploy authelia helm
   - [x] Integrate with traefik
-  - [ ] Integrate with argocd
+  - [x] Integrate with argocd
 - [ ] Setup valero for kubernetes backups
 - [ ] Expose UI's behind authelia:
   - [ ] Kubernetes
   - [x] Traefik
   - [x] Vault
-  - [ ] Argo
+  - [x] Argo
+  - [ ] Grafana
 - [ ] Setup local internet/bare metal ip mapping
 - [ ] Setup backups with https://velero.io/
 - [ ] Add omada controller https://github.com/mbentley/docker-omada-controllerh
