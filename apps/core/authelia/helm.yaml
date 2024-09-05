@@ -147,7 +147,7 @@ spec:
                   userinfo_signed_response_alg: 'none'
                 - client_id: 'argocd'
                   client_name: 'Argo CD'
-                  client_secret: '$pbkdf2-sha512$310000$B0qf1x12JOH.myKRwp4OTw$H0k8x5eG84bLZSmhLdkIGx3uuo14cSorWL.iRuSGdr0VdBuQWD2SuQD5u5yKtvAQFvMUUPqcHAcFh.zr14xOfQ' # The digest of 'insecure_secret'.
+                  client_secret: '$pbkdf2-sha512$310000$QHqC1iKGAK6QdZ3fAam/IQ$QnO.2EcfMwPpCp5j2RxqHz4ZU7mLYwUH3E1y9cOzk5X.HssuIgzGefBC99PIDJYzG9Lb5/VtfBZGTQJ4qKRDyQ'
                   public: false
                   authorization_policy: 'two_factor'
                   redirect_uris:
