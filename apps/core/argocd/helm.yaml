@@ -32,6 +32,18 @@ spec:
         configs:
           params:
             server.insecure: true
+          cm:
+            oidc.config: |
+              name: Authelia
+              issuer: https://auth.bhamm-lab.com
+              clientID: argocd
+              clientSecret: $argocd-external:oidc_client_secret
+              cliClientID: 'argocd-cli'
+              requestedScopes:
+                - 'openid'
+                - 'profile'
+                - 'email'
+                - 'groups'
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

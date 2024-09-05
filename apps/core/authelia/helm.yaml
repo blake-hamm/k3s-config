@@ -145,6 +145,32 @@ spec:
                     - 'groups'
                     - 'email'
                   userinfo_signed_response_alg: 'none'
+                - client_id: 'argocd'
+                  client_name: 'Argo CD'
+                  client_secret: '$pbkdf2-sha512$310000$B0qf1x12JOH.myKRwp4OTw$H0k8x5eG84bLZSmhLdkIGx3uuo14cSorWL.iRuSGdr0VdBuQWD2SuQD5u5yKtvAQFvMUUPqcHAcFh.zr14xOfQ' # The digest of 'insecure_secret'.
+                  public: false
+                  authorization_policy: 'two_factor'
+                  redirect_uris:
+                    - 'https://argocd.bhamm-lab.com/auth/callback'
+                  scopes:
+                    - 'openid'
+                    - 'groups'
+                    - 'email'
+                    - 'profile'
+                  userinfo_signed_response_alg: 'none'
+                - client_id: 'argocd-cli'
+                  client_name: 'Argo CD (CLI)'
+                  public: true
+                  authorization_policy: 'two_factor'
+                  redirect_uris:
+                    - 'http://localhost:8085/auth/callback'
+                  scopes:
+                    - 'openid'
+                    - 'groups'
+                    - 'email'
+                    - 'profile'
+                    - 'offline_access'
+                  userinfo_signed_response_alg: 'none'
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
