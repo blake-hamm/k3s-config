@@ -71,6 +71,12 @@ spec:
       secretThreshold: 3
     kubernetes:
       secretNamespace: default
+  envsConfig:
+    - name: OIDC_VAULT_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: authelia-external
+          key: vault_client_secret
   config:
     storage:
       raft:
@@ -114,11 +120,7 @@ spec:
         config:
           oidc_discovery_url: https://auth.bhamm-lab.com
           oidc_client_id: vault
-          oidc_client_secret:
-            valueFrom:
-              secretKeyRef:
-                name: authelia-external
-                key: vault_client_secret
+          oidc_client_secret: "${env `OIDC_VAULT_CLIENT_SECRET`}"
           default_role: default
           allowed_redirect_uris: ["https://vault.bhamm-lab.com/oidc/callback", "https://vault.bhamm-lab.com/ui/vault/auth/oidc/oidc/callback"]
         roles:
