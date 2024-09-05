@@ -58,7 +58,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Setup ceph cluster with rook
 
 ### Once vault is functioning as planned, next steps are:
-- [ ] Setup authelia middleware
+- [x] Setup authelia middleware
   - [x] Deploy lldap
   - [ ] OPTIONAL: gitops for ldap - https://github.com/lldap/lldap/blob/main/example_configs/bootstrap/bootstrap.md#environment-variables
   - [x] Deploy authelia helm
