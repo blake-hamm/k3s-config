@@ -58,22 +58,23 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
 - [x] Setup ceph cluster with rook
 
 ### Once vault is functioning as planned, next steps are:
-- [ ] Setup authelia middleware
-  - [ ] Deploy lldap
-  - [ ] Deploy authelia helm
-  - [ ] Integrate with traefik
-  - [ ] Integrate with argocd
+- [x] Setup authelia middleware
+  - [x] Deploy lldap
+  - [ ] OPTIONAL: gitops for ldap - https://github.com/lldap/lldap/blob/main/example_configs/bootstrap/bootstrap.md#environment-variables
+  - [x] Deploy authelia helm
+  - [x] Integrate with traefik
+  - [x] Integrate with argocd
 - [ ] Setup valero for kubernetes backups
 - [ ] Expose UI's behind authelia:
   - [ ] Kubernetes
-  - [ ] Traefik
-  - [ ] Vault
-  - [ ] Argo
+  - [x] Traefik
+  - [x] Vault
+  - [x] Argo
+  - [x] Grafana
 - [ ] Setup local internet/bare metal ip mapping
-- [ ] Setup PV on nfs
 - [ ] Setup backups with https://velero.io/
 - [ ] Add omada controller https://github.com/mbentley/docker-omada-controllerh
-- [ ] Setup postgresql db
+- [x] Setup postgresql db
 
 ### Time to figure out vlans:
 - [ ] Deploy omada cloud controller
