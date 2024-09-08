@@ -70,7 +70,7 @@ I want to have my argo UI accessible via https://argocd.bhamm-lab.com on my LAN;
   - [x] Traefik
   - [x] Vault
   - [x] Argo
-  - [ ] Grafana
+  - [x] Grafana
 - [ ] Setup local internet/bare metal ip mapping
 - [ ] Setup backups with https://velero.io/
 - [ ] Add omada controller https://github.com/mbentley/docker-omada-controllerh

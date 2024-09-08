@@ -56,10 +56,6 @@ spec:
               email_attribute_name: preferred_username
               allow_sign_up: true
               allow_assign_grafana_admin: true
-          # admin:
-          #   existingSecret: monitoring-login
-          #   userKey: admin-user
-          #   passwordKey: admin-password
           sidecar:
             dashboards:
               enabled: true

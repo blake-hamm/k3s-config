@@ -50,9 +50,6 @@ spec:
               value: /app/external-secrets/storage_encryption_key
             - name: AUTHELIA_IDENTITY_PROVIDERS_OIDC_ISSUER_PRIVATE_KEY_FILE
               value: /app/external-secrets/jwks_key
-        # secret:
-        #   oidcPrivateKey:
-        #     filename: /app/external-secrets/jwks_key
         configMap:
           log:
             level: 'debug'
