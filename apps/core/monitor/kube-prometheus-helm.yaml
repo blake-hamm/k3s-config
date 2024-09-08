@@ -54,7 +54,6 @@ spec:
               use_pkce: true
               role_attribute_path: contains(groups, 'admin') && 'Admin' || contains(groups, 'editor') && 'Editor' || 'Viewer'
               email_attribute_name: preferred_username
-              login_attribute_path: preferred_username
           admin:
             existingSecret: monitoring-login
             userKey: admin-user
