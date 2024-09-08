@@ -57,16 +57,16 @@ spec:
             existingSecret: monitoring-login
             userKey: admin-user
             passwordKey: admin-password
-            sidecar:
-              dashboards:
-                enabled: true
-                defaultFolderName: "General"
-                label: grafana_dashboard
-                labelValue: "1"
-                folderAnnotation: grafana_folder
-                searchNamespace: ALL
-                provider:
-                  foldersFromFilesStructure: true
+          sidecar:
+            dashboards:
+              enabled: true
+              defaultFolderName: "General"
+              label: grafana_dashboard
+              labelValue: "1"
+              folderAnnotation: grafana_folder
+              searchNamespace: ALL
+              provider:
+                foldersFromFilesStructure: true
           dashboardProviders:
             dashboardproviders.yaml:
               apiVersion: 1
