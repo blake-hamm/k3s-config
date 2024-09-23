@@ -1,3 +1,5 @@
+[This has been archived and migrated to the `bhamm-lab` monorepo.](https://github.com/blake-hamm/bhamm-lab)
+
 # k3s config
 *For an opinionated homelab*
 
